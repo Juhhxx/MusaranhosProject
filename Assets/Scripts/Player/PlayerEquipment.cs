@@ -1,12 +1,16 @@
+using System.Collections.Generic;
 using Player;
 using UnityEngine;
 
 public class PlayerEquipment : MonoBehaviour
 {
+    [SerializeField] private EquipmentObject[] equipmentObjects;
+    private EquipmentObject CurrentEquipment => equipmentObjects[(int) _currentEquipmentEnum];
     private EquipmentEnum _currentEquipmentEnum;
 
     public void StoreEquipment()
     {
+        CurrentEquipment.Unequip();
         _currentEquipmentEnum = EquipmentEnum.None;
     }
 
@@ -14,10 +18,11 @@ public class PlayerEquipment : MonoBehaviour
     {
         if (_currentEquipmentEnum == equipmentEnum)
         {
-            //Call equipment specific behaviour
+            CurrentEquipment.Use();
         }
         
         StoreEquipment();
         _currentEquipmentEnum = equipmentEnum;
+        CurrentEquipment.Equip();
     }
 }
