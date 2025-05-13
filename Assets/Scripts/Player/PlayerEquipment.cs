@@ -1,16 +1,23 @@
+using Player;
 using UnityEngine;
 
 public class PlayerEquipment : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private EquipmentEnum _currentEquipmentEnum;
+
+    public void StoreEquipment()
     {
-        
+        _currentEquipmentEnum = EquipmentEnum.None;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UseEquipment(EquipmentEnum equipmentEnum)
     {
+        if (_currentEquipmentEnum == equipmentEnum)
+        {
+            //Call equipment specific behaviour
+        }
         
+        StoreEquipment();
+        _currentEquipmentEnum = equipmentEnum;
     }
 }

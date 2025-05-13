@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private PlayerInteraction _playerInteraction;
     private PlayerMovement _playerMovement;
     private PlayerEquipment _playerEquipment;
-    
     
     private Vector2 _moveVector;
     
@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
         _playerInput.actions["Lantern"].performed += Interact;
     }
 
-    // Update is called once per frame
     void Update()
     {
         _moveVector = _playerInput.actions["Move"].ReadValue<Vector2>(); //Probably change to calling a function in PlayerMovement class
@@ -32,17 +31,17 @@ public class PlayerController : MonoBehaviour
 
     private void HoldCompass(InputAction.CallbackContext context)
     {
-        //Call player idk, equipment???
+        _playerEquipment.UseEquipment(EquipmentEnum.Compass);
     }
 
     private void StoreCompass(InputAction.CallbackContext context)
     {
-        //Call player idk, equipment???
+        _playerEquipment.StoreEquipment();
     }
 
     private void ChargeLantern(InputAction.CallbackContext context)
     {
-        //Call player idk, equipment???
+        _playerEquipment.UseEquipment(EquipmentEnum.Lantern);
     }
 
     private void Interact(InputAction.CallbackContext context)

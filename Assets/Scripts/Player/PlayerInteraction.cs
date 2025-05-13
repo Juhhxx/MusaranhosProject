@@ -18,5 +18,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         if(!_canInteract) return;
         var detectedObject = Detector.GetClosestInArea<InteractiveObject>(transform, interactionRange, interactiveLayerMask);
+        //Handle interactive specific behaviour;
     }
 }
