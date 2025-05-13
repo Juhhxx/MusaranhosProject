@@ -29,7 +29,7 @@
                     "id": "2cbb26f2-f9c3-4ecd-aead-f52b913e4ebf",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.1)",
                     "initialStateCheck": false
                 },
                 {
@@ -211,7 +211,7 @@
                 {
                     "name": "",
                     "id": "056cad0c-6c91-45ae-bd7c-af04ecd09d79",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -233,7 +233,7 @@
                 {
                     "name": "",
                     "id": "ee190632-7cdf-42e2-b5f7-8a04127e34fc",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         _playerInput.actions["Compass"].started += HoldCompass;
         _playerInput.actions["Compass"].canceled += StoreCompass;
         _playerInput.actions["Lantern"].performed += ChargeLantern;
-        _playerInput.actions["Lantern"].performed += Interact;
+        _playerInput.actions["Interact"].performed += Interact;
     }
 
     void Update()
