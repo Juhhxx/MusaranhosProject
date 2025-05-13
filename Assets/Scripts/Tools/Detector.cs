@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class Detector
 {
-    private static List<T> GetObjectsInArea<T>(Transform areaCenter, float areaRadius, LayerMask layerMask)
+    public static List<T> GetObjectsInArea<T>(Transform areaCenter, float areaRadius, LayerMask layerMask)
     {
         var foundObjects = new List<T>();
         var hit = new RaycastHit[100];

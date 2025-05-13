@@ -18,15 +18,11 @@ namespace Player.Equipment
             private set
             {
                 _lightLevel = Mathf.Clamp(value, 0f, maxLightLevel); 
-                _animator.SetFloat("LightLevel", _lightLevel);
                 if(_light != null) _light.intensity = _lightLevel;
             }
         }
         
         private float _lightLevel;
-
-        [Header("Model Options")]
-        [SerializeField] private GameObject viewModel;
         
         private Animator _animator;
         private Light _light;
