@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private Vector2             _mov;
 
-    // Update is called once per frame
-    void Update()
+    public void NoGridMov(Vector2 dir, float velocity, CharacterController _playerController)
     {
-        
+        _mov.x = dir.x*velocity;
+        _mov.y = 0;
+
+        _playerController.Move(_mov);
     }
 }
