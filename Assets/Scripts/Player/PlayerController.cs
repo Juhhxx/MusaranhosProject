@@ -4,11 +4,20 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private PlayerInput _playerInput;
+    private PlayerInteraction _playerInteraction;
+    private PlayerMovement _playerMovement;
+    private PlayerEquipment _playerEquipment;
+    
+    
     private Vector2 _moveVector;
     
     void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
+        _playerInteraction = GetComponent<PlayerInteraction>();
+        _playerMovement = GetComponent<PlayerMovement>();
+        _playerEquipment = GetComponent<PlayerEquipment>();
+        
         _playerInput.actions["Compass"].started += HoldCompass;
         _playerInput.actions["Compass"].canceled += StoreCompass;
         _playerInput.actions["Lantern"].performed += ChargeLantern;
@@ -38,6 +47,6 @@ public class PlayerController : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext context)
     {
-        // call playerInteraction
+        _playerInteraction.Interact();
     }
 }
