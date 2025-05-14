@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Player.Equipment;
 using Compass = Player.Equipment.Compass;
 
@@ -27,9 +28,9 @@ namespace Misc
             player = FindFirstObjectByType<PlayerMovement>();
             enemy = FindFirstObjectByType<EnemyMovement>();
             
-            //enemy.OnBlind() += OnEnemyBlinded;
-            //enemy.OnLostChase() += OnEnemyLostChase;
-            //player.OnScoutMove() += OnPlayerScoutMove;
+            //enemy.OnBlind += OnEnemyBlinded;
+            //enemy.OnLostChase += OnEnemyLostChase;
+            player.OnScoutMove += OnPlayerScoutMove;
         }
         
         private void SetCompassTarget(Transform target)
@@ -37,17 +38,17 @@ namespace Misc
             compass.SetNeedleTarget(target);
         }
         
-        private void OnEnemyBlinded()
+        private void OnEnemyBlinded(object sender, EventArgs e)
         {
-            //player.StartChase();
+            player.StartChase();
         }
 
-        private void OnEnemyLostChase()
+        private void OnEnemyLostChase(object sender, EventArgs e)
         {
-            //player.StartScout();
+            player.StartScout();
         }
 
-        private void OnPlayerScoutMove()
+        private void OnPlayerScoutMove(object sender, EventArgs e)
         {
             //enemy.Move();
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -29,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool _goBackToGrid;
     //[SerializeField] private LayerMask _backToGridMask;
     private Vector3 _lastPos;
+    
+    public event EventHandler OnScoutMove;
 
     void Start()
     {
@@ -87,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0f,rotation,0f);
 
         if (Input.GetKey(KeyCode.W)) 
-        {_playerController.Move(transform.forward*_velocityOffGrid*Time.fixedDeltaTime);}
+        {_playerController.Move(transform.forward * (_velocityOffGrid * Time.fixedDeltaTime));}
     }
 
     void GridMov()
@@ -96,6 +99,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D)) { transform.Rotate(_rotation); }
         if (Input.GetKeyDown(KeyCode.W) && !_cantGo)
             {_playerController.Move(transform.forward*_velocity.z);}
+        OnScoutMove?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void StartChase()
+    {
+        _stalker = true;
+    }
+
+    public void StartScout()
+    {
+        _stalker = false;
     }
 
     // public void NoGridMov(Vector2 dir, float velocity, CharacterController _playerController, Transform _playerTrans)
