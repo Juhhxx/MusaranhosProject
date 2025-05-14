@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using Map;
+using UnityEngine;
 
 namespace Player
 {
-    public class PlayerInventory
+    public class PlayerInventory : MonoBehaviour
     {
         private Dictionary<Item, int> inventory;
 
