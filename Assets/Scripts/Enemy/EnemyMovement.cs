@@ -6,9 +6,11 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float _moveInterval;
+    private float _moveTimer;
+    [SerializeField] private Transform _playerTrans;
+    [SerializeField] private bool _gridBased;
 
     // Look Parameters 
-    private Transform _playerTrans;
     private Vector3 _lookTarget;
 
     // Pathfinding Parameters
@@ -22,45 +24,59 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector3 _moveTarget;
     private NavMeshAgent _agent;
-    private YieldInstruction _wfs;
     
     private void Start()
     {
-        // _playerTrans    = Detector.GetClosestInArea<PlayerMovement>
-        //                     (transform, 100, 0).transform;
-        _agent          = GetComponent<NavMeshAgent>();
-        _pathfinder     = GetComponent<Pathfinder>();
-        _wfs            = new WaitForSeconds(_moveInterval);
+        _agent                  = GetComponent<NavMeshAgent>();
+        _pathfinder             = GetComponent<Pathfinder>();
 
-        _graph = _graphManager.Graph;
-        _currentPoint = _startPoint;
+        _graph                  = _graphManager.Graph;
+        _currentPoint           = _startPoint;
+        _agent.updateRotation   = false;
+        _moveTarget             = _startPoint.GetPosition();
 
         transform.position = _currentPoint.GetPosition();
         SetNewDestination(_destinationPoint);
-
-        StartCoroutine(GridMovement());
     }
     private void Update()
     {
+        if (_gridBased) GridMovement();
+        else            FollowMovement();
+
+        LookAtTarget();
         Move();
     }
 
     private void LookAtTarget()
     {
+        if (_playerTrans == null) return;
+
         _lookTarget     = _playerTrans.position;
         _lookTarget.y   = transform.position.y;
 
         transform.LookAt(_lookTarget);
     }
 
-    private IEnumerator GridMovement()
+    private void GridMovement()
     {
-        while (_currentPath.Count > 0)
-        {
-            GetNextPoint();
+        CountTimer();
 
-            yield return _wfs;
+        if (_moveTimer == 0) GetNextPoint();
+    }
+    private void CountTimer()
+    {
+        if (_moveTimer < _moveInterval)
+        {
+            _moveTimer += Time.fixedDeltaTime;
         }
+        else if (_moveTimer >= _moveInterval)
+        {
+            ResetTimer();
+        }
+    }
+    private void ResetTimer()
+    {
+        _moveTimer = 0f;
     }
     private void SetNewDestination(GraphPoint destination)
     {
@@ -68,11 +84,17 @@ public class EnemyMovement : MonoBehaviour
     }
     private void GetNextPoint()
     {
-        if (Vector3.Distance(_moveTarget, transform.position) < 0.1f)
+        if (Vector3.Distance(_moveTarget, transform.position) < 0.5f || _moveTarget == _playerTrans.position)
         {
             _currentPoint   = _currentPath.Pop();
             _moveTarget     = _currentPoint.GetPosition();
         }
+    }
+
+    private void FollowMovement()
+    {
+        ResetTimer();
+        _moveTarget = _playerTrans.position;
     }
     private void Move()
     {

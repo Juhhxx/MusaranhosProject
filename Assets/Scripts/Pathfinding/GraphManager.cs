@@ -83,7 +83,7 @@ public class GraphManager : MonoBehaviour
         {
             foreach (GraphPoint p in point.Value.Connections)
             {
-                Debug.DrawLine(point.Value.transform.position, p.transform.position, Color.red);
+                Debug.DrawLine(point.Value.transform.position, p.transform.position, Color.cyan);
             }
         }
     }
