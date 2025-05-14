@@ -7,7 +7,6 @@ public class GraphManager : MonoBehaviour
     [SerializeField] private GraphPoint _startPoint;
     [SerializeField] private float _pointDistance;
     [SerializeField] private bool _drawConnections;
-    [SerializeField] private LayerMask _pointsLayer;
 
 
     private Dictionary<int,GraphPoint> _graph;
@@ -15,7 +14,7 @@ public class GraphManager : MonoBehaviour
     private Stack<GraphPoint> _workingPoints;
     private int _pointNumber;
 
-    private void Start()
+    private void Awake()
     {
         _graph = new Dictionary<int, GraphPoint>();
 
@@ -62,9 +61,11 @@ public class GraphManager : MonoBehaviour
 
             if (Physics.Raycast(point.transform.position + (point.transform.forward * 1.5f), 
                                 point.transform.forward, 
-                                out RaycastHit hit, _pointDistance - 1.5f, _pointsLayer))
+                                out RaycastHit hit, _pointDistance - 1.5f))
             {
                 GraphPoint p = hit.collider.GetComponent<GraphPoint>();
+
+                if (p == null) continue;
 
                 connections.Add(p);
                 _workingPoints.Push(p);

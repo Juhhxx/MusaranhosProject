@@ -15,7 +15,7 @@ public class Pathfinder : MonoBehaviour
         public float TotalCost;
     }
 
-    [SerializeField] private bool _showPath = true;
+    [SerializeField] private bool _showPath;
     private List<GraphPoint> _currentPath;
 
     private void Update()
@@ -92,16 +92,12 @@ public class Pathfinder : MonoBehaviour
 
                 currentPoint = currentPoint.FromNode;
             }
-            
+
             path.Push(currentPoint.Point);
 
             return path;
         }
     }
-    // private Stack<GraphPoint> Drisjka(Node start, Node end)
-    // {
-
-    // }
     private Node GetCheapestNode(List<Node> list)
     {
         Node result = null;
@@ -125,6 +121,8 @@ public class Pathfinder : MonoBehaviour
 
     private void ShowPath()
     {
+        if (_currentPath == null) return;
+        
         for (int i = 1; i < _currentPath.Count; i++)
         {
             Vector3 curP = _currentPath[i].transform.position;
