@@ -471,6 +471,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac3423fd771cd54d8ec32e1b21c69f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gridSize: 0
+  _layerBlock:
+    serializedVersion: 2
+    m_Bits: 0
+  _velocity: 0
 --- !u!4 &396078572
 Transform:
   m_ObjectHideFlags: 0
@@ -996,7 +1001,8 @@ GameObject:
   m_Component:
   - component: {fileID: 919438731}
   - component: {fileID: 919438730}
-  m_Layer: 0
+  - component: {fileID: 919438732}
+  m_Layer: 9
   m_Name: Graph Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1021,6 +1027,7 @@ MonoBehaviour:
   _pointsLayer:
     serializedVersion: 2
     m_Bits: 512
+  _pathfinder: {fileID: 919438732}
 --- !u!4 &919438731
 Transform:
   m_ObjectHideFlags: 0
@@ -1044,6 +1051,19 @@ Transform:
   - {fileID: 904073931}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &919438732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919438729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f8aeef7a042d54e8ff57c199bc1279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showPath: 1
 --- !u!114 &982851092 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3832124292643184429, guid: 4997fb0695d776544b1bf8d4c9a39fd6, type: 3}
