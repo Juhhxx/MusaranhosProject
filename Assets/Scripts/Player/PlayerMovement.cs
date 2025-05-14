@@ -8,12 +8,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("WalkField")]
     [SerializeField] private int _gridSizePlusHalf;
     [SerializeField] private LayerMask _layerBlock;
+    [SerializeField] private float _camRotateSpeed = 1;
     [SerializeField] private Vector3 _velocity;
     [SerializeField] private float _velocityOffGrid;
     
     private Vector3             _mov;
-    private Vector3             _rotation;
-
+    private Vector3            _rotationPerTurn;
+    private Vector3            _rotation;
     //Conditions
     private bool                _cantGo;
     [SerializeField] private bool _stalker; //Precisarei de um GetBool no futuro
@@ -32,7 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        _rotation = new Vector3(0,90,0);
+       _rotationPerTurn = new Vector3(0,90,0);
+       _rotation = Vector3.zero;
         
         _playerInput = GetComponent<PlayerInput>();
         _playerController = GetComponent<CharacterController>();
@@ -50,16 +52,18 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(!_stalker && _goBackToGrid)
         {
-            if (_lastPos != Vector3.zero)
-            {
-                transform.position = Vector3.MoveTowards(transform.position,_lastPos,_velocity.magnitude*Time.deltaTime);
-                transform.rotation = Quaternion.identity;
-            }
+            if (_lastPos != Vector3.zero){ResetGrid();}
             else {OffGridMov();}
 
             if (transform.position == _lastPos) {_goBackToGrid = false;}
         }
-        else if (!_stalker && !_goBackToGrid) {GridMov();}
+        else if (!_stalker && !_goBackToGrid) 
+        {
+            Debug.Log("doing grid movements");
+            RotateVector();
+            Rotate();
+            GridMov();
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -92,23 +96,33 @@ public class PlayerMovement : MonoBehaviour
 
     void GridMov()
     {
-        if (Input.GetKeyDown(KeyCode.A)) { transform.Rotate(-_rotation);  }
-        if (Input.GetKeyDown(KeyCode.D)) { transform.Rotate(_rotation); }
         if (Input.GetKeyDown(KeyCode.W) && !_cantGo)
             {_playerController.Move(transform.forward*_velocity.z);}
     }
 
-    // public void NoGridMov(Vector2 dir, float velocity, CharacterController _playerController, Transform _playerTrans)
-    // {
-    //     if (dir.magnitude > 0) _mov = _playerTrans.forward*velocity; 
-    //     else _mov = Vector2.zero;
 
-    //     _playerController.Move(_mov);
-    // }
+    void ResetGrid()
+    {
+        transform.position = Vector3.MoveTowards(transform.position,_lastPos,_velocity.magnitude*Time.deltaTime);
+        transform.rotation = Quaternion.identity;
+    }
 
-    // public void RotationMov(Vector2 dir, Transform _trans)
-    // {
-    //     if(dir.x > 0){_trans.Rotate(_rotation);}
-    //     else if(dir.x < 0){_trans.Rotate(-_rotation);}
-    // }
+    private void RotateVector()
+    {
+        if (Input.GetKeyDown(KeyCode.A)) 
+        { 
+            _rotation -= _rotationPerTurn;//set vector3 rotation to -90 at Y Axis 
+        }
+        if (Input.GetKeyDown(KeyCode.D)) 
+        {
+            _rotation += _rotationPerTurn;//set vector3 rotation to 90 at Y Axis 
+        }
+    }
+
+    private void Rotate()
+    {
+        Quaternion _rotQua = Quaternion.Euler(_rotation);
+        transform.localRotation = Quaternion.Slerp(transform.rotation,_rotQua,_camRotateSpeed*Time.deltaTime);
+        Debug.Log(_rotation);
+    }
 }
