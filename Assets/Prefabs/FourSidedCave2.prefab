@@ -76,9 +76,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: FourSidedCave2
       objectReference: {fileID: 0}
+    - target: {fileID: 3033264837810717010, guid: 3d6180f20d7e23a4c8a77d1f2b7f9ea1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8315534470724131115, guid: 3d6180f20d7e23a4c8a77d1f2b7f9ea1, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8927828106528693220, guid: 3d6180f20d7e23a4c8a77d1f2b7f9ea1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

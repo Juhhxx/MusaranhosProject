@@ -1,15 +1,18 @@
+using System;
 using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
     private PlayerInput _playerInput;
     private PlayerInteraction _playerInteraction;
     private PlayerMovement _playerMovement;
     private PlayerEquipment _playerEquipment;
     
     private Vector2 _moveVector;
+    private CharacterController _playerController;
     
     void Start()
     {
@@ -17,6 +20,8 @@ public class PlayerController : MonoBehaviour
         _playerInteraction = GetComponent<PlayerInteraction>();
         _playerMovement = GetComponent<PlayerMovement>();
         _playerEquipment = GetComponent<PlayerEquipment>();
+
+        _playerController = GetComponent<CharacterController>();
         
         _playerInput.actions["Compass"].started += HoldCompass;
         _playerInput.actions["Compass"].canceled += StoreCompass;
@@ -26,7 +31,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        _moveVector = _playerInput.actions["Move"].ReadValue<Vector2>(); //Probably change to calling a function in PlayerMovement class
+        _moveVector = _playerInput.actions["Move"].ReadValue<Vector2>();
+        //_playerMovement.RotationMov(_moveVector, transform); //Probably change to calling a function in PlayerMovement class
+        //_playerMovement.NoGridMov(_moveVector,_velocity,_playerController, transform);
     }
 
     private void HoldCompass(InputAction.CallbackContext context)
