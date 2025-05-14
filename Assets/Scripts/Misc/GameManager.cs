@@ -51,5 +51,10 @@ namespace Misc
         {
             //enemy.Move();
         }
+
+        public void NewSound(Vector3 position)
+        {
+            //enemy.HeardSound(position);
+        }
     }
 }
