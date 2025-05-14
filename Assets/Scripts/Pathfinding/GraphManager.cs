@@ -9,6 +9,7 @@ public class GraphManager : MonoBehaviour
     [SerializeField] private bool _drawConnections;
     [SerializeField] private LayerMask _pointsLayer;
 
+
     private Dictionary<int,GraphPoint> _graph;
     public IDictionary<int,GraphPoint> Graph => _graph;
     private Stack<GraphPoint> _workingPoints;
