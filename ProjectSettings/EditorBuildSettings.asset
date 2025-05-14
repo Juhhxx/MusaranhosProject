@@ -5,7 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD
+  - enabled: 1
+=======
   - enabled: 0
+>>>>>>> 8f1d46de7a9f5e1eb1c56f3b14cd7aa710ba7d86
     path: Assets/Scenes/JuliaTests.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1

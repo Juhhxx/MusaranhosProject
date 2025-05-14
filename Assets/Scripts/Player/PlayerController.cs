@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]private float _vel;
+
     private PlayerInput _playerInput;
     private PlayerInteraction _playerInteraction;
     private PlayerMovement _playerMovement;
@@ -31,8 +31,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        _moveVector = _playerInput.actions["Move"].ReadValue<Vector2>(); //Probably change to calling a function in PlayerMovement class
-        _playerMovement.NoGridMov(_moveVector,_vel,_playerController);
+        _moveVector = _playerInput.actions["Move"].ReadValue<Vector2>();
+        //_playerMovement.RotationMov(_moveVector, transform); //Probably change to calling a function in PlayerMovement class
+        //_playerMovement.NoGridMov(_moveVector,_velocity,_playerController, transform);
     }
 
     private void HoldCompass(InputAction.CallbackContext context)
