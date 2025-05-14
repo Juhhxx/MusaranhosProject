@@ -2,6 +2,7 @@
 {
     public enum Item
     {
+        None,
         Shiv,
         Dynamite,
         Lighter
