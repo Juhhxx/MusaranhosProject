@@ -4,7 +4,7 @@ namespace Misc
 {
     public class SoundClue : MonoBehaviour
     {
-        public void SetPosition(Vector3 pos)
+        public void Start()
         {
             var position = transform.position;
             FindFirstObjectByType<GameManager>().NewSound(position);

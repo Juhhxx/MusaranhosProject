@@ -1,4 +1,5 @@
 ﻿using System;
+using Misc;
 using UnityEngine;
 
 namespace Player.Equipment
@@ -51,6 +52,7 @@ namespace Player.Equipment
         public override void Use()
         {
             LightLevel += lanternGainPerUse;
+            gameObject.AddComponent<SoundClue>();
         }
 
         public override void Equip()
