@@ -92,8 +92,8 @@ public class PlayerMovement : MonoBehaviour
 
     void GridMov()
     {
-        if (Input.GetKeyDown(KeyCode.A)) { transform.Rotate(_rotation);  }
-        if (Input.GetKeyDown(KeyCode.D)) { transform.Rotate(-_rotation); }
+        if (Input.GetKeyDown(KeyCode.A)) { transform.Rotate(-_rotation);  }
+        if (Input.GetKeyDown(KeyCode.D)) { transform.Rotate(_rotation); }
         if (Input.GetKeyDown(KeyCode.W) && !_cantGo)
             {_playerController.Move(transform.forward*_velocity.z);}
     }
