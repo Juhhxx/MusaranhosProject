@@ -7,6 +7,7 @@ namespace Player.Equipment
     {
         [Header("Light Options")] 
         [SerializeField] private Color lightColor;
+        [SerializeField] private float maxLightIntensity;
         [SerializeField] private float maxLightLevel;
         [SerializeField] private float lanternGainPerUse;
         [SerializeField] private float lanternLossPerSecond;
@@ -18,7 +19,7 @@ namespace Player.Equipment
             private set
             {
                 _lightLevel = Mathf.Clamp(value, 0f, maxLightLevel); 
-                if(_light != null) _light.intensity = _lightLevel;
+                if(_light != null) _light.intensity = Mathf.Lerp(0f, maxLightIntensity, _lightLevel/maxLightLevel);
             }
         }
         
