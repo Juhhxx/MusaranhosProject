@@ -15,7 +15,7 @@ public class GraphManager : MonoBehaviour
     private Stack<GraphPoint> _workingPoints;
     private int _pointNumber;
 
-    private void Start()
+    private void Awake()
     {
         _graph = new Dictionary<int, GraphPoint>();
 
