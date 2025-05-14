@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerEquipment : MonoBehaviour
 {
     [SerializeField] private EquipmentObject[] equipmentObjects;
-    private EquipmentObject CurrentEquipment => equipmentObjects[(int) _currentEquipmentEnum];
+    private EquipmentObject CurrentEquipment => equipmentObjects[(int) _currentEquipmentEnum -1];
     private EquipmentEnum _currentEquipmentEnum;
 
     public void StoreEquipment()
@@ -21,7 +21,7 @@ public class PlayerEquipment : MonoBehaviour
             CurrentEquipment.Use();
         }
         
-        StoreEquipment();
+        if(_currentEquipmentEnum != EquipmentEnum.None) StoreEquipment();
         _currentEquipmentEnum = equipmentEnum;
         CurrentEquipment.Equip();
     }
