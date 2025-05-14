@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             if (_lastPos != Vector3.zero)
             {
                 transform.position = Vector3.MoveTowards(transform.position,_lastPos,_velocity.magnitude*Time.deltaTime);
-                transform.Rot = Quaternion.identity;
+                transform.rotation = Quaternion.identity;
             }
             else {OffGridMov();}
 
