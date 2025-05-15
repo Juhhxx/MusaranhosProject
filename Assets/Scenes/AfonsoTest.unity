@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.04150939, g: 0.011826261, b: 0.035147358, a: 1}
   m_FogMode: 2
-  m_FogDensity: 0.2
+  m_FogDensity: 0.3
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.19707362, g: 0.23634963, b: 0.335849, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: de8432b68953f6748a672d847667e084, type: 2}
   m_HaloStrength: 0.505
   m_FlareStrength: 1
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1345824994}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -605,9 +605,109 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 44564632598487363, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 488720342344222936, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 592584117265057366, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 644141594115984721, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971669918926185843, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027023931242413260, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1160136636237456684, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
       propertyPath: m_Name
       value: MapLayout
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299907060830951181, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315324732948547722, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327273774637590878, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1362587354559173759, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691738530843895026, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910213971004362895, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210566590985572351, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538759121625305623, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051313935666700657, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607117773662260992, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710520875694578804, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721023642187713677, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397998611498026949, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427262746899989065, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530415630772837023, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5245282
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530415630772837023, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_Color.g
+      value: 0.15100974
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530415630772837023, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_Color.r
+      value: 0.0385973
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949570748578335178, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614767608299836768, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7241744018987657933, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -647,6 +747,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7241744018987657933, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400596515012229028, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436184247234121949, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_Color.b
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436184247234121949, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_Color.g
+      value: 0.661739
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436184247234121949, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_Color.r
+      value: 0.44838017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707877340377852141, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927198749474904560, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186389944496475116, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403588374697573537, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995696285866497891, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052063131243561404, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: m_StaticShadowCaster
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -907,14 +1047,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 0.9528302, g: 0.9264665, b: 0.85844606, a: 1}
-  m_Intensity: 663.3
+  m_Color: {r: 0.46995372, g: 0.5157039, b: 0.8113208, a: 1}
+  m_Intensity: 1000
   m_Range: 16.32
-  m_SpotAngle: 82.88635
+  m_SpotAngle: 60.550022
   m_InnerSpotAngle: 32.650566
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -947,7 +1087,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
