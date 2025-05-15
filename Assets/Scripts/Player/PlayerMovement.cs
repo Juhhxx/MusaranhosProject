@@ -1,9 +1,8 @@
 using System;
-using System.Threading;
 using Misc;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = System.Random;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +13,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask _layerBlock;
     [SerializeField] private Vector3 _velocity;
     [SerializeField] private float _velocityOffGrid;
+    
+    [Header("Noise Making Settings")]
+    [SerializeField] private float _minNoiseFrequency;
+    [SerializeField] private float _maxNoiseFrequency;
+    private float _noiseFrequency;
+    private float _noiseTimer;
+    
     private float             _walkTimer;
     private float             _rotateTimer;
     private bool _isMoving;
@@ -39,14 +45,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _triggerPos;
 
     public Vector2 MoveVector { get; set; }
-
+    private Random _rnd;
     public event EventHandler OnScoutMove;
+    public event EventHandler OnNoise;
 
     void Start()
     {  
         _playerInput = GetComponent<PlayerInput>();
         _playerController = GetComponent<CharacterController>();
         _gameManager = FindFirstObjectByType<GameManager>();
+        _rnd = new Random();
     }
 
     void Update()
@@ -110,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _walkTimer += Time.deltaTime;
         transform.position = Vector3.Lerp(_lastPosition,_moveTarget,_walkTimer / _walkDuration);
+        NoiseUpdate();
         if (_walkTimer >= _walkDuration)
         {
             _isMoving = false;
@@ -148,6 +157,23 @@ public class PlayerMovement : MonoBehaviour
             _lastRotation = transform.rotation;
             _rotateTarget = transform.rotation * Quaternion.AngleAxis(MoveVector.x > 0 ? 90 : -90, Vector3.up);
         }
+    }
+
+    private void NoiseUpdate()
+    {
+        if (_noiseTimer == 0) GetNewNoiseFrequency();
+        _noiseTimer += Time.deltaTime;
+        if (_noiseTimer >= _noiseFrequency)
+        {
+            _noiseTimer = 0;
+            //Call PlayAudio with soundclue
+            OnNoise?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    private void GetNewNoiseFrequency()
+    {
+        _noiseFrequency = Mathf.Lerp(_minNoiseFrequency, _maxNoiseFrequency, (float)_rnd.NextDouble());
     }
 
     public void StartChase()

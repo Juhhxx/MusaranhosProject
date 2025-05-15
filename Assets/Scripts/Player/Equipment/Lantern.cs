@@ -14,6 +14,8 @@ namespace Player.Equipment
         [SerializeField] private float lanternLossPerSecond;
         [SerializeField] private float unequippedLossMultiplier;
 
+        public event EventHandler OnCrank;
+
         public float LightLevel
         {
             get => _lightLevel;
@@ -52,7 +54,7 @@ namespace Player.Equipment
         public override void Use()
         {
             LightLevel += lanternGainPerUse;
-            //Call something to give sound clues to monster;
+            OnCrank?.Invoke(this, EventArgs.Empty);
         }
 
         public override void Equip()

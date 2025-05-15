@@ -1,7 +1,7 @@
 ﻿using System;
 using Player;
-using UnityEngine;
 using Player.Equipment;
+using UnityEngine;
 using Compass = Player.Equipment.Compass;
 
 namespace Misc
@@ -9,6 +9,7 @@ namespace Misc
     public class GameManager : MonoBehaviour
     {
         private Compass compass;
+        private Lantern lantern;
         private PlayerMovement player;
         private PlayerController playerController;
         private PlayerInventory playerInventory;
@@ -34,6 +35,7 @@ namespace Misc
             playerLetterReader = FindFirstObjectByType<PlayerLetterReader>();
             playerInventory = FindFirstObjectByType<PlayerInventory>();
             playerController = FindFirstObjectByType<PlayerController>();
+            lantern = FindFirstObjectByType<Lantern>();
             
             //enemy.OnBlind += OnEnemyBlinded;
             //enemy.OnLostChase += OnEnemyLostChase;
@@ -43,6 +45,8 @@ namespace Misc
             playerInventory.OnItemAdded += OnItemAdded;
             playerInventory.OnItemRemoved += OnItemRemoved;
             playerInventory.OnLetterAdded += OnLetterAdded;
+            lantern.OnCrank += OnNewSound;
+            player.OnNoise += OnNewSound;
             
             SetCompassTarget(GameObject.FindWithTag("Exit").transform);
         }
@@ -94,6 +98,11 @@ namespace Misc
         private void OnLetterAdded(object sender, EventArgs e)
         {
             //Call UI
+        }
+
+        private void OnNewSound(object sender, EventArgs e)
+        {
+            NewSound(player.transform.position);
         }
 
         public void NewSound(Vector3 position)
