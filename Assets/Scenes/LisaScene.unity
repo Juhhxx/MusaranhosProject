@@ -614,6 +614,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6523139758466132798, guid: 015141d115dcccb4195f067e9a1c2b52, type: 3}
+      propertyPath: _walkDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523139758466132798, guid: 015141d115dcccb4195f067e9a1c2b52, type: 3}
+      propertyPath: _rotateDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9087979299789133606, guid: 015141d115dcccb4195f067e9a1c2b52, type: 3}
       propertyPath: m_Name
       value: TestPlayer
