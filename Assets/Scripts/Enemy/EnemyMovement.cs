@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     private float _moveTimer;
     [SerializeField] private Transform _playerTrans;
     [SerializeField] private bool _gridBased;
+    public bool GridBased { get => _gridBased; set => _gridBased = value; }
 
     // Look Parameters 
     private Vector3 _lookTarget;
@@ -21,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
     private Pathfinder _pathfinder;
     private Stack<GraphPoint> _currentPath;
     private GraphPoint _currentPoint;
+    public GraphPoint CurrentPoint => _currentPoint;
 
     private Vector3 _moveTarget;
     private NavMeshAgent _agent;
@@ -29,15 +31,12 @@ public class EnemyMovement : MonoBehaviour
     {
         _agent                  = GetComponent<NavMeshAgent>();
         _pathfinder             = GetComponent<Pathfinder>();
-
         _graph                  = _graphManager.Graph;
-        _currentPoint           = _startPoint;
-        _moveTarget             = _startPoint.GetPosition();
         _currentPath            = new Stack<GraphPoint>();
         _agent.updateRotation   = false;
         _moveTimer              = 0f;
 
-        transform.position = _currentPoint.GetPosition();
+        GridTeleport(_startPoint);
     }
     private void Update()
     {
@@ -83,6 +82,7 @@ public class EnemyMovement : MonoBehaviour
     public void SetNewDestination(GraphPoint destination)
     {
         _currentPath = _pathfinder.GetPath(_currentPoint, destination);
+        Debug.Log($"Set Destination from {_currentPoint.transform.parent.name} to {destination.transform.parent.name}");
         Debug.Log($"Current Path Size = {_currentPath.Count}");
     }
     private void GetNextPoint()
@@ -93,12 +93,26 @@ public class EnemyMovement : MonoBehaviour
             _moveTarget     = _currentPoint.GetPosition();
         }
     }
+    public void GridTeleport(GraphPoint point)
+    {
+        _agent.enabled = false;
+        transform.position = point.GetPosition();
+        _moveTarget = point.GetPosition();
+        _currentPoint = point;
+        _agent.enabled = true;
+    }
+    public void ResetPath()
+    {
+        _currentPath = new Stack<GraphPoint>();
+        ResetTimer();
+    }
 
     private void FollowMovement()
     {
         ResetTimer();
         _moveTarget = _playerTrans.position;
     }
+
     private void Move()
     {
         _agent.destination = _moveTarget;

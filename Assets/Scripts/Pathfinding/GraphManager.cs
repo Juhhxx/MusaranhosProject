@@ -8,6 +8,7 @@ public class GraphManager : MonoBehaviour
     [SerializeField] private GraphPoint _startPoint;
     [SerializeField] private float _pointDistance;
     [SerializeField] private bool _drawConnections;
+    [ReadOnly][SerializeField] private int _playerPoint;
     [ReadOnly][SerializeField] private List<GraphDebugger> _points;
 
     private Dictionary<int,GraphPoint> _graph;
@@ -39,6 +40,8 @@ public class GraphManager : MonoBehaviour
         if (_drawConnections) DrawConnections();
     }
 
+    public void SetPlayerPoint(int idx) => _playerPoint = idx;
+    
     private void CreateGraph()
     {
         Debug.Log("Start Creating Graph");
@@ -58,6 +61,7 @@ public class GraphManager : MonoBehaviour
 
         point.SetID(_pointNumber);
         point.SetConnections(GetConnections(point));
+        point.SetGraph(this);
 
         _graph.Add(_pointNumber, point);
         _points.Add(new GraphDebugger(_pointNumber, point.transform.parent.gameObject.name));
@@ -91,6 +95,27 @@ public class GraphManager : MonoBehaviour
         Debug.Log($"{connections.Count} Connections Found!");
         return connections;
     }
+
+    public GraphPoint GetPointAwayFromPlayer()
+    {
+        List<GraphPoint> points = new List<GraphPoint>(_graph.Values);
+        GraphPoint point = _graph[0];
+        float maxDistance = 0;
+
+        foreach (GraphPoint p in points)
+        {
+            float distance = Vector3.Distance(p.transform.position, _graph[_playerPoint].transform.position);
+
+            if (distance > maxDistance)
+            {
+                point = p;
+                maxDistance = distance;
+            }
+        }
+
+        return point;
+    }
+
     private void DrawConnections()
     {
         foreach (var point in _graph)

@@ -108,7 +108,7 @@ public class Pathfinder : MonoBehaviour
             if (result == null) result = p;
             else
             {
-                if (p.TotalCost < result.TotalCost) result = p;
+                if (p.TotalCost <= result.TotalCost) result = p;
             }
         }
 
@@ -116,8 +116,8 @@ public class Pathfinder : MonoBehaviour
     }
     private float HeuristicCalculation(Node point, Node end)
     {
-        return  Mathf.Abs(point.Point.transform.position.x - end.Point.transform.position.x) + 
-                Mathf.Abs(point.Point.transform.position.y - end.Point.transform.position.y);
+        return  Mathf.Abs(end.Point.GetPosition().x - point.Point.GetPosition().x) + 
+                Mathf.Abs(end.Point.GetPosition().y - point.Point.GetPosition().y);
     }
 
     private void ShowPath()

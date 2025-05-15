@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16ee180eff2ae0c4cbd3fd634e6fee12, type: 3}
-  m_Name: TransitionAutomatic
+  m_Script: {fileID: 11500000, guid: 240c847184b822747b77dce1d93fe1b8, type: 3}
+  m_Name: TransitionGetKeyDown
   m_EditorClassIdentifier: 
-  Name: Automatic
-  ToState: {fileID: 11400000, guid: 0998edbf1fd92e545bce4dbc4b80199f, type: 2}
+  Name: PressZ
+  ToState: {fileID: 11400000, guid: 687b2691ac40741429ca078a3d43bc7d, type: 2}
+  key: 122
