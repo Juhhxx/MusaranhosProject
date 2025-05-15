@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5589504360331934643}
   - component: {fileID: 9054321547500579872}
   - component: {fileID: 213922649980185355}
+  - component: {fileID: 5527752015034901374}
   m_Layer: 10
   m_Name: Musaranho
   m_TagString: Untagged
@@ -84,12 +85,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a50a560ce5c043a88e3a63ecedd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveInterval: 5
+  _moveInterval: 3
   _playerTrans: {fileID: 0}
   _gridBased: 1
   _graphManager: {fileID: 0}
   _startPoint: {fileID: 0}
-  AtTarget: 0
 --- !u!114 &213922649980185355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +103,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showPath: 1
+--- !u!114 &5527752015034901374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115624351576276520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71537d3f78396634186a5c78336d0c16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1139674574303104202
 GameObject:
   m_ObjectHideFlags: 0

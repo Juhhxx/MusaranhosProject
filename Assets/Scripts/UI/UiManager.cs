@@ -48,7 +48,7 @@ public class UiManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("FullScreen", value);
             Screen.fullScreen = FullScreen == 1;
-            fullScreenIcon.sprite = FullScreen == 1 ? enabledToggleSprite : disabledToggleSprite;
+            //fullScreenIcon.sprite = FullScreen == 1 ? enabledToggleSprite : disabledToggleSprite;
         }
     }
 
