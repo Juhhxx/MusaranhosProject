@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Next Letter",
+                    "name": "NextLetter",
                     "type": "Button",
                     "id": "1b93edad-fa4d-4361-b5f9-010906da56dd",
                     "expectedControlType": "",
@@ -69,7 +69,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Previous Letter",
+                    "name": "PreviousLetter",
                     "type": "Button",
                     "id": "ea1e73b3-d01b-4f19-a87c-af5596fbb0e4",
                     "expectedControlType": "",
@@ -306,7 +306,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Next Letter",
+                    "action": "NextLetter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -317,7 +317,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Next Letter",
+                    "action": "NextLetter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -328,7 +328,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Previous Letter",
+                    "action": "PreviousLetter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -339,7 +339,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Previous Letter",
+                    "action": "PreviousLetter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
