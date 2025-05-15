@@ -14,17 +14,19 @@ namespace Misc
         private PlayerController playerController;
         private PlayerInventory playerInventory;
         private PlayerLetterReader playerLetterReader;
-        private EnemyMovement enemy;
         private int dangerLevel;
         private UiManager uiManager;
+        private EnemyController enemyController;
 
+        public event EventHandler OnScoutMove;
+        
         public int DangerLevel
         {
             get { return dangerLevel; }
             private set
             {
                 dangerLevel = value;
-                //enemy.setDangerLevel(value);
+                enemyController.SetDangerLevel(value);
             }
         }
 
@@ -32,16 +34,15 @@ namespace Misc
         {
             compass = FindFirstObjectByType<Compass>();
             player = FindFirstObjectByType<PlayerMovement>();
-            enemy = FindFirstObjectByType<EnemyMovement>();
+            enemyController = FindFirstObjectByType<EnemyController>();
             playerLetterReader = FindFirstObjectByType<PlayerLetterReader>();
             playerInventory = FindFirstObjectByType<PlayerInventory>();
             playerController = FindFirstObjectByType<PlayerController>();
             lantern = FindFirstObjectByType<Lantern>();
             uiManager = FindFirstObjectByType<UiManager>();
-            
-            //enemy.OnBlind += OnEnemyBlinded;
-            //enemy.OnLostChase += OnEnemyLostChase;
             player.OnScoutMove += OnPlayerScoutMove;
+            player.OnShiv += OnShiv;
+            player.OnScoutMove += ScoutMove;
             playerController.OnPause += OnPause;
             playerLetterReader.OnLettersToggle += OnLettersToggle;
             playerLetterReader.OnReadingLetterChanged += OnReadingLetterChanged;
@@ -49,7 +50,9 @@ namespace Misc
             playerInventory.OnItemRemoved += OnItemRemoved;
             playerInventory.OnLetterAdded += OnLetterAdded;
             lantern.OnCrank += OnNewSound;
+            lantern.OnFlash += OnFlash;
             player.OnNoise += OnNewSound;
+            enemyController.OnAttack += OnAttack;
             
             SetCompassTarget(GameObject.FindWithTag("Exit").transform);
         }
@@ -57,11 +60,6 @@ namespace Misc
         private void SetCompassTarget(Transform target)
         {
             compass.SetNeedleTarget(target);
-        }
-        
-        private void OnEnemyBlinded(object sender, EventArgs e)
-        {
-            player.StartChase();
         }
 
         private void OnEnemyLostChase(object sender, EventArgs e)
@@ -105,14 +103,9 @@ namespace Misc
 
         private void OnNewSound(object sender, EventArgs e)
         {
-            NewSound(player.transform.position);
+            enemyController.HearSound(true);
         }
-
-        public void NewSound(Vector3 position)
-        {
-            //enemy.HeardSound(position);
-        }
-
+        
         public void PlayerWalking(bool value)
         {
             playerController.StopActions(!value, !value);
@@ -133,6 +126,26 @@ namespace Misc
         {
             StopPlayTime(false);
             playerController.ResumeGame();
+        }
+
+        private void OnAttack(object sender, EventArgs e)
+        {
+            player.GetAttacked();
+        }
+
+        private void OnFlash(object sender, EventArgs e)
+        {
+            player.StartChase();
+        }
+
+        private void OnShiv(object sender, EventArgs e)
+        {
+            enemyController.Shived(true);
+        }
+
+        private void ScoutMove(object sender, EventArgs e)
+        {
+            OnScoutMove?.Invoke(this, EventArgs.Empty);
         }
     }
 }

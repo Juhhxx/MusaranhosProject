@@ -11,6 +11,9 @@ public class EnemyController : MonoBehaviour
     private bool _hearSound;
     public bool GetHearSound => _hearSound;
     private NavMeshAgent _agent;
+
+    private int dangerLevel;
+    public int DangerLevel => dangerLevel;
     public event EventHandler OnAttack;
 
     private void Start()
@@ -24,4 +27,6 @@ public class EnemyController : MonoBehaviour
     public void Shived(bool value) => _shived = value;
     public void HearSound(bool value) => _hearSound = value;
     public void Attack() => OnAttack?.Invoke(this, null);
+    
+    public void SetDangerLevel(int value) => dangerLevel = value;
 }

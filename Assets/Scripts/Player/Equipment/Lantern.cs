@@ -13,8 +13,12 @@ namespace Player.Equipment
         [SerializeField] private float lanternGainPerUse;
         [SerializeField] private float lanternLossPerSecond;
         [SerializeField] private float unequippedLossMultiplier;
+        
+        [Header("Flashing Options")]
+        [SerializeField] private float raycastMultiplier;
 
         public event EventHandler OnCrank;
+        public event EventHandler OnFlash;
 
         public float LightLevel
         {
@@ -41,7 +45,20 @@ namespace Player.Equipment
 
         private void Update()
         {
-            if (LightLevel > 0) DimLight();
+            if (LightLevel > 0)
+            {
+                CheckFlashing();
+                DimLight();
+            }
+        }
+
+        private void CheckFlashing()
+        {
+            EnemyController temp;
+            if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _lightLevel * raycastMultiplier))
+                if ((temp = hit.collider.gameObject.GetComponent<EnemyController>()) != null)
+                    temp.Flashed(true);
+                    
         }
 
         private void DimLight()
