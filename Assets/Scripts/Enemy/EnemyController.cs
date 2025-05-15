@@ -1,11 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
     private bool _flashed;
+    public bool GetFlashed => _flashed; 
     private bool _shived;
+    public bool GetShived => _shived;
     private NavMeshAgent _agent;
+    public event EventHandler OnAttack;
 
     private void Start()
     {
@@ -14,6 +18,6 @@ public class EnemyController : MonoBehaviour
         _shived = false;
     }
 
-    public void Flashed() => _flashed = true;
-    public void Shived() => _shived = true;
+    public void Flashed(bool value) => _flashed = value;
+    public void Shived(bool value) => _shived = value;
 }

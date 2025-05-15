@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     private float _moveTimer;
     [SerializeField] private Transform _playerTrans;
     [SerializeField] private bool _gridBased;
+    public bool GridBased { get => _gridBased; set => _gridBased = value; }
 
     // Look Parameters 
     private Vector3 _lookTarget;
