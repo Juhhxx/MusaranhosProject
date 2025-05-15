@@ -25,6 +25,7 @@ namespace Player.Equipment
         [Header("Model Options")]
         [SerializeField] private GameObject modelObject;
         [SerializeField] private Transform needleObject;
+        [SerializeField] private Transform needleRotationObject;
         private Animator _animator;
         
         
@@ -49,7 +50,7 @@ namespace Player.Equipment
 
         private Quaternion GetNeedleRotation()
         {
-            var rotation = Quaternion.LookRotation(transform.position - _needleTarget.transform.position, Vector3.up);
+            var rotation = Quaternion.LookRotation(_needleTarget.transform.position - transform.position, Vector3.up);
             if (IsInterferenceReady())
             {
                 _lastInterferenceTime = 0f;
@@ -72,14 +73,17 @@ namespace Player.Equipment
         private Quaternion ApplyInterference(Quaternion rotation)
         {
             var interferenceModifier = GetHighestInterference();
-            _lastInterferenceRotation =
+             _lastInterferenceRotation =
                 Quaternion.AngleAxis((float)_rnd.NextDouble() * Mathf.Lerp(0, 360, interferenceModifier), Vector3.up);
             return rotation * _lastInterferenceRotation;
         }
 
         private void RotateNeedle(Quaternion rotation)
         {
-            needleObject.transform.rotation = Quaternion.RotateTowards(needleObject.transform.rotation, rotation, rotationSpeed * _rotationModifier);
+            var rawRotation = Quaternion.RotateTowards(needleRotationObject.transform.rotation, rotation,
+                rotationSpeed * _rotationModifier * Time.deltaTime);
+            needleRotationObject.rotation = rawRotation; 
+            needleObject.eulerAngles = new Vector3(needleObject.eulerAngles.x, needleObject.eulerAngles.y, -needleRotationObject.localEulerAngles.y);
         }
 
         private float GetHighestInterference()
