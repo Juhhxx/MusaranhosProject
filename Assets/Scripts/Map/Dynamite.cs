@@ -32,5 +32,20 @@ namespace Map
         {
             animator.SetTrigger("Explosion");
         }
+
+        public void PlayPlacedAudio()
+        {
+            placedPlayAudio.Play();
+        }
+
+        public void PlayLitAudio()
+        {
+            litPlayAudio.Play();
+        }
+
+        public void PlayExplosionAudio()
+        {
+            explosionPlayAudio.Play();
+        }
     }
 }
