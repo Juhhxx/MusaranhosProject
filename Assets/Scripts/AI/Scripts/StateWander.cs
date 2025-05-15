@@ -38,7 +38,7 @@ public class StateWander : StateAbstract
     }
     public override void InstantiateState()
     {
-        gameObject = FindObjectByType<EnemyMovement>();
+        gameObject = base.objectReference;
         transform = gameObject.transform;
 
         _graph = GetComponent<GraphManager>(FindObjectByType<GraphManager>());

@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
     public GraphPoint CurrentPoint => _currentPoint;
 
     private Vector3 _moveTarget;
+    public bool AtTarget = false;
     private NavMeshAgent _agent;
     
     private void Start()
@@ -91,7 +92,9 @@ public class EnemyMovement : MonoBehaviour
         {
             _currentPoint   = _currentPath.Pop();
             _moveTarget     = _currentPoint.GetPosition();
+            AtTarget = true;
         }
+        else AtTarget = false;
     }
     public void GridTeleport(GraphPoint point)
     {
