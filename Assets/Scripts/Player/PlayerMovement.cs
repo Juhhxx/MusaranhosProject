@@ -185,4 +185,9 @@ public class PlayerMovement : MonoBehaviour
     {
         _stalker = false;
     }
+
+    public void SetSensitivity(float value)
+    {
+         _sensitivity = value;
+    }
 }
