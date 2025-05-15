@@ -2,8 +2,8 @@ using AI.FSMs.UnityIntegration;
 using AI.FSMs.BaseFiles;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TransitionFlashed", menuName = "State Machines/Transitions/TransitionFlashed")]
-public class TransitionFlashed : TransitionAbstract
+[CreateAssetMenu(fileName = "TransitionHeardSound", menuName = "State Machines/Transitions/TransitionHeardSound")]
+public class TransitionHeardSound : TransitionAbstract
 {
     GameObject gameObject;
 
@@ -11,13 +11,13 @@ public class TransitionFlashed : TransitionAbstract
 
     protected override void Action()
     {
-        Debug.Log($"Transition Flashed");
+        Debug.Log($"Transition HeardSound");
 
-        _enemyController.Flashed(false);
+        _enemyController.HearSound(false);
     }
     protected override bool Condition()
     {
-        return _enemyController.GetFlashed;
+        return _enemyController.GetHearSound;
     }
     public override void InstantiateTransition()
     {

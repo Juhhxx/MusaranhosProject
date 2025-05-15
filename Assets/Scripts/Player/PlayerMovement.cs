@@ -1,5 +1,7 @@
 using System;
+using Map;
 using Misc;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = System.Random;
@@ -34,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private bool                _cantGo;
     [SerializeField] private bool _stalker; 
     private CharacterController _playerController;
+    private PlayerInventory _playerInventory;
 
     [Header("Camera Rotation No Grid")]
     [SerializeField] private float _sensitivity;
@@ -48,12 +51,14 @@ public class PlayerMovement : MonoBehaviour
     private Random _rnd;
     public event EventHandler OnScoutMove;
     public event EventHandler OnNoise;
+    public event EventHandler OnShiv;
 
     void Start()
     {  
         _playerInput = GetComponent<PlayerInput>();
         _playerController = GetComponent<CharacterController>();
         _gameManager = FindFirstObjectByType<GameManager>();
+        _playerInventory = GetComponent<PlayerInventory>();
         _rnd = new Random();
     }
 
@@ -189,5 +194,13 @@ public class PlayerMovement : MonoBehaviour
     public void SetSensitivity(float value)
     {
          _sensitivity = value;
+    }
+
+    public void GetAttacked()
+    {
+        if (_playerInventory.ContainsItem(Item.Shiv))
+        {
+            OnShiv?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

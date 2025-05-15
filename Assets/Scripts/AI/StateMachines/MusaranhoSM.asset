@@ -13,13 +13,31 @@ MonoBehaviour:
   m_Name: MusaranhoSM
   m_EditorClassIdentifier: 
   StateTransitions:
-  - State: {fileID: 11400000, guid: 0998edbf1fd92e545bce4dbc4b80199f, type: 2}
-    Transitions:
-    - {fileID: 11400000, guid: 6d2a8da02e6eb1b4faf7b689f2e0f692, type: 2}
-  - State: {fileID: 11400000, guid: 687b2691ac40741429ca078a3d43bc7d, type: 2}
+  - State: {fileID: 11400000, guid: 313e0892b4a34444c8f0528439d75221, type: 2}
     Transitions:
     - {fileID: 11400000, guid: 1821b1ef10c392b4d8ece30e12ea909f, type: 2}
-  - State: {fileID: 11400000, guid: 313e0892b4a34444c8f0528439d75221, type: 2}
+  - State: {fileID: 11400000, guid: 0998edbf1fd92e545bce4dbc4b80199f, type: 2}
+    Transitions:
+    - {fileID: 11400000, guid: bb40631c597e00a48bc6c4703e91edc3, type: 2}
+    - {fileID: 11400000, guid: dbfbaa0dad5ece543b82371073fec0d9, type: 2}
+    - {fileID: 11400000, guid: b3b7b40fe074e424eb4a796e49a8cbe0, type: 2}
+  - State: {fileID: 11400000, guid: 0ccd0f7a858dd8341b1c65aa684f5bbf, type: 2}
+    Transitions:
+    - {fileID: 11400000, guid: 908894c6ec2a05d4ba72e178999b0f62, type: 2}
+    - {fileID: 11400000, guid: bb40631c597e00a48bc6c4703e91edc3, type: 2}
+    - {fileID: 11400000, guid: dbfbaa0dad5ece543b82371073fec0d9, type: 2}
+  - State: {fileID: 11400000, guid: 6be73d2a539683544b81a070f3b14dc5, type: 2}
+    Transitions:
+    - {fileID: 11400000, guid: 05b1094279a8fc34a896e73ebc6f4019, type: 2}
+    - {fileID: 11400000, guid: dbfbaa0dad5ece543b82371073fec0d9, type: 2}
+  - State: {fileID: 11400000, guid: f922817793e700141a83a2f9b21b843d, type: 2}
+    Transitions:
+    - {fileID: 11400000, guid: ce5f28737b1c72a4d8adbcecbd4f5a80, type: 2}
+    - {fileID: 11400000, guid: c929af6d92dbfd24a8535d2f9064bac8, type: 2}
+  - State: {fileID: 11400000, guid: fc7126a1c59b4d246a1478b3864a0572, type: 2}
+    Transitions:
+    - {fileID: 11400000, guid: 5fb321d8d3095c24d964615fa887463a, type: 2}
+  - State: {fileID: 11400000, guid: 687b2691ac40741429ca078a3d43bc7d, type: 2}
     Transitions:
     - {fileID: 11400000, guid: 1821b1ef10c392b4d8ece30e12ea909f, type: 2}
   RegisteredComponents: []

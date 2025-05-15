@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Collections;
+using Misc;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +11,8 @@ public class EnemyMovement : MonoBehaviour
     private float _moveTimer;
     [SerializeField] private Transform _playerTrans;
     [SerializeField] private bool _gridBased;
+    private GameManager gameManager;
+    private EnemyController enemyController;
     public bool GridBased { get => _gridBased; set => _gridBased = value; }
 
     // Look Parameters 
@@ -25,17 +29,21 @@ public class EnemyMovement : MonoBehaviour
     public GraphPoint CurrentPoint => _currentPoint;
 
     private Vector3 _moveTarget;
+    private bool _atTarget = false;
+    public bool AtTarget => _atTarget;
     private NavMeshAgent _agent;
     
     private void Start()
     {
         _agent                  = GetComponent<NavMeshAgent>();
         _pathfinder             = GetComponent<Pathfinder>();
+        gameManager             = FindFirstObjectByType<GameManager>();
         _graph                  = _graphManager.Graph;
         _currentPath            = new Stack<GraphPoint>();
         _agent.updateRotation   = false;
         _moveTimer              = 0f;
 
+        gameManager.OnScoutMove += OnScoutMove;
         GridTeleport(_startPoint);
     }
     private void Update()
@@ -91,7 +99,9 @@ public class EnemyMovement : MonoBehaviour
         {
             _currentPoint   = _currentPath.Pop();
             _moveTarget     = _currentPoint.GetPosition();
+            _atTarget = true;
         }
+        else _atTarget = false;
     }
     public void GridTeleport(GraphPoint point)
     {
@@ -116,5 +126,10 @@ public class EnemyMovement : MonoBehaviour
     private void Move()
     {
         _agent.destination = _moveTarget;
+    }
+
+    private void OnScoutMove(object sender, EventArgs e)
+    {
+        ResetTimer();
     }
 }
