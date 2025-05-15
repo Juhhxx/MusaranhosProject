@@ -9,6 +9,7 @@ public class GraphManager : MonoBehaviour
     [SerializeField] private float _pointDistance;
     [SerializeField] private bool _drawConnections;
     [ReadOnly][SerializeField] private int _playerPoint;
+    public GraphPoint PlayerPoint => _graph[_playerPoint];
     [ReadOnly][SerializeField] private List<GraphDebugger> _points;
 
     private Dictionary<int,GraphPoint> _graph;

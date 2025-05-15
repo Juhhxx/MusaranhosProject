@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
     public bool GetFlashed => _flashed; 
     private bool _shived;
     public bool GetShived => _shived;
+    private bool _hearSound;
+    public bool GetHearSound => _hearSound;
     private NavMeshAgent _agent;
     public event EventHandler OnAttack;
 
@@ -20,4 +22,6 @@ public class EnemyController : MonoBehaviour
 
     public void Flashed(bool value) => _flashed = value;
     public void Shived(bool value) => _shived = value;
+    public void HearSound(bool value) => _hearSound = value;
+    public void Attack() => OnAttack?.Invoke(this, null);
 }

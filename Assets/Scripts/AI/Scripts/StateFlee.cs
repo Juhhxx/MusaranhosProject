@@ -29,7 +29,7 @@ public class StateFlee : StateAbstract
     }
     public override void InstantiateState()
     {
-        gameObject = FindObjectByType<EnemyMovement>();
+        gameObject = base.objectReference;
 
         _graph = GetComponent<GraphManager>(FindObjectByType<GraphManager>());
         _movement = GetComponent<EnemyMovement>(gameObject);

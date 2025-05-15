@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f707159d971f0844cbca123cc58419fc, type: 3}
+  m_Name: TransitionReachedSpot
+  m_EditorClassIdentifier: 
+  Name: ReachTarget
+  ToState: {fileID: 11400000, guid: 0998edbf1fd92e545bce4dbc4b80199f, type: 2}
