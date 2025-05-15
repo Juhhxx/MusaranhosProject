@@ -26,6 +26,7 @@ namespace Player.Equipment
             private set
             {
                 _lightLevel = Mathf.Clamp(value, 0f, maxLightLevel); 
+                _animator.SetFloat("CrankSpeed", Mathf.Clamp(LightLevel / 2, 0f, maxLightLevel / 2));
                 if(_light != null) _light.intensity = Mathf.Lerp(0f, maxLightIntensity, _lightLevel/maxLightLevel);
             }
         }
@@ -50,13 +51,12 @@ namespace Player.Equipment
                 CheckFlashing();
                 DimLight();
             }
+            if(_lightLevel == 0 && !_unequipped) Unequip();
         }
 
         private void CheckFlashing()
         {
             EnemyController temp;
-            Debug.DrawLine(transform.position, transform.position + transform.forward * (_lightLevel * raycastMultiplier), Color.red);
-            print(_lightLevel * raycastMultiplier);
             if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _lightLevel * raycastMultiplier))
                 if ((temp = hit.collider.gameObject.GetComponent<EnemyController>()) != null)
                     temp.Flashed(true);
@@ -74,7 +74,6 @@ namespace Player.Equipment
         {
             LightLevel += lanternGainPerUse;
             OnCrank?.Invoke(this, EventArgs.Empty);
-            _animator.SetTrigger("Crank");
         }
 
         public override void Equip()
@@ -88,6 +87,7 @@ namespace Player.Equipment
         {
             _unequipped = true;
             _animator.SetTrigger("Unequip");
+            InvokeOnUnequip();
         }
     }
 }

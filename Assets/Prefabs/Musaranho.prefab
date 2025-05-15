@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9054321547500579872}
   - component: {fileID: 213922649980185355}
   - component: {fileID: 5527752015034901374}
+  - component: {fileID: 3032390733609881663}
   m_Layer: 10
   m_Name: Musaranho
   m_TagString: Untagged
@@ -35,6 +36,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8275170199656304849}
+  - {fileID: 3222055519449622253}
+  - {fileID: 4924306714618146186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &9011005652101361554
@@ -115,6 +118,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71537d3f78396634186a5c78336d0c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3032390733609881663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115624351576276520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d383554d584444a9346c2d0858a766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danger1Voice: {fileID: 5082539693407413868}
+  danger2Voice: {fileID: 4471443289896260051}
 --- !u!1 &1139674574303104202
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +164,146 @@ Transform:
   - {fileID: 1301851293850857297}
   m_Father: {fileID: 4274090749157510822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5426489410312726406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3222055519449622253}
+  - component: {fileID: 5082539693407413868}
+  - component: {fileID: 2463379531265680071}
+  m_Layer: 10
+  m_Name: Mimicry1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3222055519449622253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426489410312726406}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4274090749157510822}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5082539693407413868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426489410312726406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc319293584b4e6984d7769a0c3c75f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minIntervalDuration: 20
+  maxIntervalDuration: 25
+  playOnStart: 0
+  playAudio: {fileID: 2463379531265680071}
+--- !u!114 &2463379531265680071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426489410312726406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190cfa2a962f16a49a44992f5d6a0054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip:
+  - {fileID: 8300000, guid: c00f71e50f663ad4ba55a028579c2340, type: 3}
+  - {fileID: 8300000, guid: c97feb6bb16dd51409b26fda3bff7f02, type: 3}
+  - {fileID: 8300000, guid: 9bf54fa0fc45cb440aeee3d3977e9f52, type: 3}
+  - {fileID: 8300000, guid: 3324d763c9bbe0346991ed4b4e017587, type: 3}
+  - {fileID: 8300000, guid: 9dc6355f83081ef47b30644723ddab68, type: 3}
+  _audioMixer: {fileID: 24300002, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _isLoop: 0
+  _playOnStart: 0
+--- !u!1 &6084478565092641184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4924306714618146186}
+  - component: {fileID: 4471443289896260051}
+  - component: {fileID: 5621399097890132485}
+  m_Layer: 10
+  m_Name: Mimicry2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4924306714618146186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6084478565092641184}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4274090749157510822}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4471443289896260051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6084478565092641184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc319293584b4e6984d7769a0c3c75f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minIntervalDuration: 20
+  maxIntervalDuration: 25
+  playOnStart: 0
+  playAudio: {fileID: 5621399097890132485}
+--- !u!114 &5621399097890132485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6084478565092641184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190cfa2a962f16a49a44992f5d6a0054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip:
+  - {fileID: 8300000, guid: 726fa20fd911ae34694a343747aa6815, type: 3}
+  - {fileID: 8300000, guid: fc85acf5a6fed3848bbf0084cc218dc9, type: 3}
+  - {fileID: 8300000, guid: 12e4ca35dd696e445ac62e9ed694c891, type: 3}
+  - {fileID: 8300000, guid: 9bd24e1e57065044f8ddbd89acd0fc11, type: 3}
+  - {fileID: 8300000, guid: 06d4ce9dd83347a45892ec88163cff17, type: 3}
+  _audioMixer: {fileID: 24300002, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _isLoop: 0
+  _playOnStart: 0
 --- !u!1 &7371880148237646384
 GameObject:
   m_ObjectHideFlags: 0

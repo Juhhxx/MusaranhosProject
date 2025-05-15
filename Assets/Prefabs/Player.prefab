@@ -483,7 +483,7 @@ MonoBehaviour:
   lightColor: {r: 0.8196079, g: 0.68235296, b: 0.12941177, a: 1}
   maxLightIntensity: 200
   maxLightLevel: 5
-  lanternGainPerUse: 0.33
+  lanternGainPerUse: 0.5
   lanternLossPerSecond: 1
   unequippedLossMultiplier: 2
   raycastMultiplier: 2

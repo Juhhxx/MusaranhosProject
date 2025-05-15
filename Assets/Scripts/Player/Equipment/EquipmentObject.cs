@@ -11,6 +11,8 @@ namespace Player
         [SerializeField] private PlayAudio pullDownAudio;
         [SerializeField] private PlayAudio useAudio;
         
+        public event EventHandler OnUnequip;
+        
         public abstract void Start();
 
         public abstract void Use();
@@ -28,10 +30,14 @@ namespace Player
         {
             if(pullDownAudio != null) pullDownAudio.Play();
         }
-
         public virtual void PlayUseAudio()
         {
             if(useAudio != null) useAudio.Play();
+        }
+
+        protected void InvokeOnUnequip()
+        {
+            OnUnequip?.Invoke(this, EventArgs.Empty);
         }
     }
 }
