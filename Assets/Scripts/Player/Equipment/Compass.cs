@@ -117,20 +117,26 @@ namespace Player.Equipment
         public override void Equip()
         {
             _animator.SetTrigger("Equip");
-            modelObject.SetActive(true);
-            _unequipped = false;
         }
 
         public override void Unequip()
         {
             _animator.SetTrigger("Unequip");
-            modelObject.SetActive(false);
-            _unequipped = true;
         }
 
         public void SetNeedleTarget(Transform needleTarget)
         {
             _needleTarget = needleTarget;
+        }
+
+        public void Unequipped()
+        {
+            _unequipped = true;
+        }
+
+        public void Equipped()
+        {
+            _unequipped = false;
         }
     }
 }
