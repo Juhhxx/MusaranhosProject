@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Map;
 using UnityEngine;
 
@@ -7,6 +8,12 @@ namespace Player
     public class PlayerInventory : MonoBehaviour
     {
         private Dictionary<Item, int> inventory;
+
+        private void Start()
+        {
+            inventory = new Dictionary<Item, int>();
+            AddItem(Item.None);
+        }
 
         public void AddItem(Item item)
         {
