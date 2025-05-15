@@ -327,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioClip:
   - {fileID: 8300000, guid: 9f781970af246074b93cfcdfb3830058, type: 3}
-  _audioMixer: {fileID: 24300002, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
   _isLoop: 1
   _playOnStart: 1
 --- !u!82 &8254123583957112382
@@ -4679,6 +4679,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8948712924379717545}
     m_Modifications:
+    - target: {fileID: 194377019434620699, guid: 89723bce343678140836f4897c9faacf, type: 3}
+      propertyPath: _audioMixer
+      value: 
+      objectReference: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+    - target: {fileID: 375678529203896779, guid: 89723bce343678140836f4897c9faacf, type: 3}
+      propertyPath: _audioMixer
+      value: 
+      objectReference: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
     - target: {fileID: 3140010069484111761, guid: 89723bce343678140836f4897c9faacf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4719,6 +4727,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6046074973038832328, guid: 89723bce343678140836f4897c9faacf, type: 3}
+      propertyPath: _audioMixer
+      value: 
+      objectReference: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
     - target: {fileID: 6774459616803594266, guid: 89723bce343678140836f4897c9faacf, type: 3}
       propertyPath: m_Name
       value: Dynamite

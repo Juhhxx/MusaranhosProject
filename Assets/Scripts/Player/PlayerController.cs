@@ -112,4 +112,16 @@ public class PlayerController : MonoBehaviour
         StopMovement(_prePauseCanMove);
         StopActions(_prePauseCanDoAction, _prePauseCantRead);
     }
+
+    public void GetAttacked()
+    {
+        StopMovement(true);
+        StopActions(true, true);
+    }
+
+    public void EscapedAttack()
+    {
+        StopMovement(false);
+        StopActions(false, false);
+    }
 }

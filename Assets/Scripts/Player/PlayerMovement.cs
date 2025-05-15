@@ -196,12 +196,4 @@ public class PlayerMovement : MonoBehaviour
     {
          _sensitivity = value;
     }
-
-    public void GetAttacked()
-    {
-        if (_playerInventory.ContainsItem(Item.Shiv))
-        {
-            OnShiv?.Invoke(this, EventArgs.Empty);
-        }
-    }
 }
