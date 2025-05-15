@@ -881,7 +881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioClip:
   - {fileID: 8300000, guid: 9f781970af246074b93cfcdfb3830058, type: 3}
-  _audioMixer: {fileID: 24300002, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
   _isLoop: 0
   _playOnStart: 1
 --- !u!4 &706426322
@@ -1312,7 +1312,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9746467356cc5eb4f97e7f7554c40c6e, type: 3}
   - {fileID: 8300000, guid: fd15781d422b1cf4594e0992355b5cae, type: 3}
   - {fileID: 8300000, guid: 4e9943f6b7ba58449b581a51cafc9224, type: 3}
-  _audioMixer: {fileID: 24300002, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
   _isLoop: 0
   _playOnStart: 0
 --- !u!114 &977365263
@@ -1445,6 +1445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Musaranho
       objectReference: {fileID: 0}
+    - target: {fileID: 2463379531265680071, guid: 7e18dd4ca002a0c48a19f58291aa22d0, type: 3}
+      propertyPath: _audioMixer
+      value: 
+      objectReference: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
     - target: {fileID: 4274090749157510822, guid: 7e18dd4ca002a0c48a19f58291aa22d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -1485,6 +1489,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5621399097890132485, guid: 7e18dd4ca002a0c48a19f58291aa22d0, type: 3}
+      propertyPath: _audioMixer
+      value: 
+      objectReference: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
     - target: {fileID: 9054321547500579872, guid: 7e18dd4ca002a0c48a19f58291aa22d0, type: 3}
       propertyPath: _startPoint
       value: 

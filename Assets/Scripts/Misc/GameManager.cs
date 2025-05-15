@@ -130,7 +130,8 @@ namespace Misc
 
         private void OnAttack(object sender, EventArgs e)
         {
-            player.GetAttacked();
+            playerController.GetAttacked();
+            
         }
 
         private void OnFlash(object sender, EventArgs e)
@@ -141,6 +142,7 @@ namespace Misc
         private void OnShiv(object sender, EventArgs e)
         {
             enemyController.Shived(true);
+            playerController.EscapedAttack();
         }
 
         private void ScoutMove(object sender, EventArgs e)

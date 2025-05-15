@@ -121,6 +121,7 @@ namespace Player.Equipment
         public override void Unequip()
         {
             _animator.SetTrigger("Unequip");
+            InvokeOnUnequip();
         }
 
         public void SetNeedleTarget(Transform needleTarget)

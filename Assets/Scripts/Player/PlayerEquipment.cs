@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
@@ -25,6 +26,12 @@ public class PlayerEquipment : MonoBehaviour
         
         if(_currentEquipmentEnum != EquipmentEnum.None) StoreEquipment();
         _currentEquipmentEnum = equipmentEnum;
+        CurrentEquipment.OnUnequip += OnUnequip;
         CurrentEquipment.Equip();
+    }
+
+    private void OnUnequip(object sender, EventArgs e)
+    {
+        _currentEquipmentEnum = EquipmentEnum.None;
     }
 }
