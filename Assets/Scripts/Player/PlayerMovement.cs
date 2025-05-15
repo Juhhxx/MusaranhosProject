@@ -13,9 +13,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask _layerBlock;
     [SerializeField] private Vector3 _velocity;
     [SerializeField] private float _velocityOffGrid;
-    
-    private Vector3             _mov;
-    private Vector3             _rotation;
     private float             _walkTimer;
     private float             _rotateTimer;
     private bool _isMoving;
@@ -28,8 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Conditions
     private bool                _cantGo;
-    [SerializeField] private bool _stalker; //Precisarei de um GetBool no futuro
-
+    [SerializeField] private bool _stalker; 
     private CharacterController _playerController;
 
     [Header("Camera Rotation No Grid")]
@@ -39,17 +35,14 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Back to the Grid")]
     [SerializeField] private bool _goBackToGrid;
-    //[SerializeField] private LayerMask _backToGridMask;
-    private Vector3 _lastPos;
+    private Vector3 _triggerPos;
 
     public Vector2 MoveVector { get; set; }
 
     public event EventHandler OnScoutMove;
 
     void Start()
-    {
-        _rotation = new Vector3(0,90,0);
-        
+    {  
         _playerInput = GetComponent<PlayerInput>();
         _playerController = GetComponent<CharacterController>();
         _pController = GetComponent<PlayerController>();
@@ -57,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {   
-        if(!_isMoving) _lastPos = transform.position;
         _cantGo = Physics.Raycast(transform.position,transform.forward, _gridSizePlusHalf, _layerBlock);
         _mouseDir = _playerInput.actions["Look"].ReadValue<Vector2>();
         
@@ -68,14 +60,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(!_stalker && _goBackToGrid)
         {
-            if (_lastPos != Vector3.zero)
+            if (_triggerPos != Vector3.zero)
             {
-                transform.position = Vector3.MoveTowards(transform.position,_lastPos,_velocity.magnitude*Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,_triggerPos,_velocity.magnitude*Time.deltaTime);
                 transform.rotation = Quaternion.identity;
             }
             else {OffGridMov();}
 
-            if (transform.position == _lastPos) {_goBackToGrid = false;}
+            if (transform.position == _triggerPos) {_goBackToGrid = false;}
         }
         else if (!_stalker && !_goBackToGrid) {GridMov();}
     }
@@ -84,9 +76,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.tag == "EditorOnly")
         {
-            _lastPos = other.transform.position;
-            _lastPos.y = transform.position.y;
-            Debug.Log(_lastPos);
+            _triggerPos = other.transform.position;
+            _triggerPos.y = transform.position.y;
         }
     }
 
@@ -94,8 +85,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.tag == "EditorOnly")
         {
-            _lastPos = Vector3.zero; 
-            Debug.Log(_lastPos);
+            _triggerPos = Vector3.zero; 
         }
     }
 
@@ -112,10 +102,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_isMoving) Moving();
         else if (_isRotating) Rotating();
-        else
-        {
-            GetMovingOrRotating();
-        }
+        else GetMovingOrRotating();
     }
 
     private void Moving()
@@ -171,18 +158,4 @@ public class PlayerMovement : MonoBehaviour
     {
         _stalker = false;
     }
-
-    // public void NoGridMov(Vector2 dir, float velocity, CharacterController _playerController, Transform _playerTrans)
-    // {
-    //     if (dir.magnitude > 0) _mov = _playerTrans.forward*velocity; 
-    //     else _mov = Vector2.zero;
-
-    //     _playerController.Move(_mov);
-    // }
-
-    // public void RotationMov(Vector2 dir, Transform _trans)
-    // {
-    //     if(dir.x > 0){_trans.Rotate(_rotation);}
-    //     else if(dir.x < 0){_trans.Rotate(-_rotation);}
-    // }
 }
