@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Map;
+using Misc;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -38,6 +39,7 @@ public class UiManager : MonoBehaviour
     
     private PlayerMovement playerMovement;
     private LiftGammaGain gammaController;
+    private GameManager gameManager;
     
     private int FullScreen
     {
@@ -111,6 +113,7 @@ public class UiManager : MonoBehaviour
         playerMovement = FindFirstObjectByType<PlayerMovement>();
         var postProcessing = FindFirstObjectByType<Volume>();
         if (!postProcessing.profile.TryGet(out gammaController)) throw new System.NullReferenceException(nameof(gammaController));
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
     public void StartGameButton()
@@ -151,6 +154,7 @@ public class UiManager : MonoBehaviour
 
     public void ResumeButton()
     {
+        gameManager.Unpause();
         pauseMenu.SetActive(false);
     }
 

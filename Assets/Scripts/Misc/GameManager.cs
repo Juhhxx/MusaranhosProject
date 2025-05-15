@@ -16,6 +16,7 @@ namespace Misc
         private PlayerLetterReader playerLetterReader;
         private EnemyMovement enemy;
         private int dangerLevel;
+        private UiManager uiManager;
 
         public int DangerLevel
         {
@@ -36,10 +37,12 @@ namespace Misc
             playerInventory = FindFirstObjectByType<PlayerInventory>();
             playerController = FindFirstObjectByType<PlayerController>();
             lantern = FindFirstObjectByType<Lantern>();
+            uiManager = FindFirstObjectByType<UiManager>();
             
             //enemy.OnBlind += OnEnemyBlinded;
             //enemy.OnLostChase += OnEnemyLostChase;
             player.OnScoutMove += OnPlayerScoutMove;
+            playerController.OnPause += OnPause;
             playerLetterReader.OnLettersToggle += OnLettersToggle;
             playerLetterReader.OnReadingLetterChanged += OnReadingLetterChanged;
             playerInventory.OnItemAdded += OnItemAdded;
@@ -118,6 +121,18 @@ namespace Misc
         private void StopPlayTime(bool value)
         {
             Time.timeScale = value ? 1f : 0f;
+        }
+
+        private void OnPause(object sender, EventArgs e)
+        {
+            StopPlayTime(true);   
+            uiManager.Pause();
+        }
+
+        public void Unpause()
+        {
+            StopPlayTime(false);
+            playerController.ResumeGame();
         }
     }
 }

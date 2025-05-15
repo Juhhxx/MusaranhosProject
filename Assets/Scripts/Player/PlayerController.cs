@@ -16,8 +16,12 @@ public class PlayerController : MonoBehaviour
     private bool _canMove = true;
     private bool _canDoAction = true;
     private bool _cantRead;
+    private bool _prePauseCanMove;
+    private bool _prePauseCanDoAction;
+    private bool _prePauseCantRead;
 
     public event EventHandler OnLetterToggle;
+    public event EventHandler OnPause;
     
     void Start()
     {
@@ -34,6 +38,7 @@ public class PlayerController : MonoBehaviour
         _playerInput.actions["Letters"].started += ToggleLetters;
         _playerInput.actions["NextLetter"].started += NextLetter;
         _playerInput.actions["PreviousLetter"].started += PreviousLetter;
+        _playerInput.actions["Interact"].performed += Interact;
     }
 
     void Update()
@@ -90,5 +95,21 @@ public class PlayerController : MonoBehaviour
     public void StopMovement(bool value)
     {
         _canMove = !value;
+    }
+
+    public void PauseGame()
+    {
+        _prePauseCanMove = _canMove;
+        _prePauseCanDoAction = _canDoAction;
+        _prePauseCantRead = _cantRead;
+        StopActions(true, true);
+        StopMovement(true);
+        OnPause?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void ResumeGame()
+    {
+        StopMovement(_prePauseCanMove);
+        StopActions(_prePauseCanDoAction, _prePauseCantRead);
     }
 }
