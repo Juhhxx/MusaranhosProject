@@ -9,6 +9,7 @@ namespace Player
     {
         private Dictionary<Item, int> inventory;
         private List<Letter> letters;
+        public List<Letter> Letters => letters;
 
         private void Start()
         {
