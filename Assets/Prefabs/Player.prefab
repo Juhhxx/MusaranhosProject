@@ -450,7 +450,7 @@ MonoBehaviour:
   lanternGainPerUse: 0.33
   lanternLossPerSecond: 1
   unequippedLossMultiplier: 2
-  raycastMultiplier: 0
+  raycastMultiplier: 2
 --- !u!95 &875262807094226664
 Animator:
   serializedVersion: 7

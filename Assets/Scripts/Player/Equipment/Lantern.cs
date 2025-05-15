@@ -55,6 +55,8 @@ namespace Player.Equipment
         private void CheckFlashing()
         {
             EnemyController temp;
+            Debug.DrawLine(transform.position, transform.position + transform.forward * (_lightLevel * raycastMultiplier), Color.red);
+            print(_lightLevel * raycastMultiplier);
             if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _lightLevel * raycastMultiplier))
                 if ((temp = hit.collider.gameObject.GetComponent<EnemyController>()) != null)
                     temp.Flashed(true);
