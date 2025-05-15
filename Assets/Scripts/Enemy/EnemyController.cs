@@ -12,8 +12,8 @@ public class EnemyController : MonoBehaviour
     public bool GetHearSound => _hearSound;
     private NavMeshAgent _agent;
 
-    private int dangerLevel;
-    public int DangerLevel => dangerLevel;
+    private int _dangerLevel = 0;
+    public int _DangerLevel => _dangerLevel;
     public event EventHandler OnAttack;
 
     private void Start()
@@ -22,13 +22,12 @@ public class EnemyController : MonoBehaviour
         _flashed = false;
         _shived = false;
         _hearSound = false;
-        _agent.enabled = false;
-
     }
 
     private void Update()
     {
-        if (dangerLevel > 0 && !_agent.enabled) _agent.enabled = true;
+        if (_dangerLevel > 0 && !_agent.enabled) _agent.enabled = true;
+        else _agent.enabled = false;
     }
 
     public void Flashed(bool value) => _flashed = value;
@@ -36,5 +35,5 @@ public class EnemyController : MonoBehaviour
     public void HearSound(bool value) => _hearSound = value;
     public void Attack() => OnAttack?.Invoke(this, null);
     
-    public void SetDangerLevel(int value) => dangerLevel = value;
+    public void Set_DangerLevel(int value) => _dangerLevel = value;
 }
