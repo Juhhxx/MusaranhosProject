@@ -25,6 +25,7 @@ namespace Player.Equipment
         [Header("Model Options")]
         [SerializeField] private GameObject modelObject;
         [SerializeField] private Transform needleObject;
+        [SerializeField] private Transform needleRotationObject;
         private Animator _animator;
         
         
@@ -35,7 +36,6 @@ namespace Player.Equipment
         public override void Start()
         {
             _animator = GetComponent<Animator>();
-            _needleTarget = GameObject.FindWithTag("Exit").transform;
             _rnd = new Random();
         }
 
@@ -49,7 +49,7 @@ namespace Player.Equipment
 
         private Quaternion GetNeedleRotation()
         {
-            var rotation = Quaternion.LookRotation(transform.position - _needleTarget.transform.position, Vector3.up);
+            var rotation = Quaternion.LookRotation(_needleTarget.transform.position - transform.position, Vector3.up);
             if (IsInterferenceReady())
             {
                 _lastInterferenceTime = 0f;
@@ -72,14 +72,17 @@ namespace Player.Equipment
         private Quaternion ApplyInterference(Quaternion rotation)
         {
             var interferenceModifier = GetHighestInterference();
-            _lastInterferenceRotation =
+             _lastInterferenceRotation =
                 Quaternion.AngleAxis((float)_rnd.NextDouble() * Mathf.Lerp(0, 360, interferenceModifier), Vector3.up);
             return rotation * _lastInterferenceRotation;
         }
 
         private void RotateNeedle(Quaternion rotation)
         {
-            needleObject.transform.rotation = Quaternion.RotateTowards(needleObject.transform.rotation, rotation, rotationSpeed * _rotationModifier);
+            var rawRotation = Quaternion.RotateTowards(needleRotationObject.transform.rotation, rotation,
+                rotationSpeed * _rotationModifier * Time.deltaTime);
+            needleRotationObject.rotation = rawRotation; 
+            needleObject.eulerAngles = new Vector3(needleObject.eulerAngles.x, needleObject.eulerAngles.y, -needleRotationObject.localEulerAngles.y);
         }
 
         private float GetHighestInterference()
@@ -113,20 +116,26 @@ namespace Player.Equipment
         public override void Equip()
         {
             _animator.SetTrigger("Equip");
-            modelObject.SetActive(true);
-            _unequipped = false;
         }
 
         public override void Unequip()
         {
             _animator.SetTrigger("Unequip");
-            modelObject.SetActive(false);
-            _unequipped = true;
         }
 
         public void SetNeedleTarget(Transform needleTarget)
         {
             _needleTarget = needleTarget;
+        }
+
+        public void Unequipped()
+        {
+            _unequipped = true;
+        }
+
+        public void Equipped()
+        {
+            _unequipped = false;
         }
     }
 }

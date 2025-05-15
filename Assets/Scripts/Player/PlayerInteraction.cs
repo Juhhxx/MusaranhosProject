@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private float interactionRadius = 1f;
-    [SerializeField] private Vector3 interactionOffset = Vector3.up;
+    [SerializeField] private Transform interactionOffset;
     [SerializeField] private LayerMask interactiveLayerMask;
     
-    private bool _canInteract;
+    private bool _canInteract = true;
     
     private PlayerInventory playerInventory;
 
@@ -40,9 +40,8 @@ public class PlayerInteraction : MonoBehaviour
         if(!_canInteract) return false;
         if (playerInventory != null && interactiveObject != null)
         {
-            if(interactiveObject.RequiredItem != Item.None)
-                playerInventory.ContainsItem(interactiveObject.RequiredItem);
+            return playerInventory.ContainsItem(interactiveObject.RequiredItem);
         }
-        return true;
+        return false;
     }
 }
