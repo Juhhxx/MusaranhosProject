@@ -2,7 +2,7 @@ using AI.FSMs.UnityIntegration;
 using AI.FSMs.BaseFiles;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StateAttack", menuName = "State Machines/StateAttack")]
+[CreateAssetMenu(fileName = "StateAttack", menuName = "State Machines/States/StateAttack")]
 public class StateAttack : StateAbstract
 {
     protected override void EntryAction()

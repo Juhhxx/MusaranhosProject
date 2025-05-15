@@ -2,16 +2,17 @@ using AI.FSMs.UnityIntegration;
 using AI.FSMs.BaseFiles;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TransitionShived", menuName = "State Machines/Transitions/TransitionShived")]
-public class TransitionShived : TransitionAbstract
+[CreateAssetMenu(fileName = "TransitionGetKeyDown", menuName = "State Machines/Transitions/TransitionGetKeyDown")]
+public class TransitionGetKeyDown : TransitionAbstract
 {
+    [SerializeField] private KeyCode key;
     protected override void Action()
     {
-        Debug.Log($"Transition Passed");
+        Debug.Log($"{key} was pressed!");
     }
     protected override bool Condition()
     {
-        return true;
+        return Input.GetKeyDown(key);
     }
     public override void InstantiateTransition()
     {

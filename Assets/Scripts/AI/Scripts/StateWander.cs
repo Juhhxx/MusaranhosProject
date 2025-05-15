@@ -3,7 +3,7 @@ using AI.FSMs.BaseFiles;
 using UnityEngine;
 using System.Linq;
 
-[CreateAssetMenu(fileName = "StateWander", menuName = "State Machines/StateWander")]
+[CreateAssetMenu(fileName = "StateWander", menuName = "State Machines/States/StateWander")]
 public class StateWander : StateAbstract
 {
     GameObject gameObject;
@@ -17,7 +17,7 @@ public class StateWander : StateAbstract
     {
         Debug.Log("Entering Wander");
 
-        _target = null;
+        GetNewPath();
     }
 
     protected override void StateAction()
@@ -25,13 +25,11 @@ public class StateWander : StateAbstract
         Debug.Log("State Wander");
         Debug.Log(_target?.transform.position);
 
-        if (_target == null) GetNewPath();
-
         if (Vector3.Distance(transform.position, _target.transform.position) <= 0.5f)
         {
             GetNewPath();
         }
-        DrawCross(_target.transform.position, 1, Color.red);
+        DrawCross(_target.transform.position, 2, Color.red);
     }
 
     protected override void ExitAction()
@@ -51,16 +49,14 @@ public class StateWander : StateAbstract
 
     private void ChooseRandomPoint()
     {
-        GraphPoint point;
-
-        if (_target == null) point = _movement.StartPoint;
-        else point = _target;
+        GraphPoint point = _movement.CurrentPoint;
 
         int nextPoint = Random.Range(0, point.Connections.Count());
-        point = point.Connections.ToList()[nextPoint];
 
-        nextPoint = Random.Range(0, point.Connections.Count());
+
         _target = point.Connections.ToList()[nextPoint];
+
+        Debug.LogWarning($"Choose {_target.transform.parent.name} from point {point.transform.parent.name}");
     }
     private void GetNewPath()
     {

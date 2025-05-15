@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateTransitions:
   - State: {fileID: 11400000, guid: 0998edbf1fd92e545bce4dbc4b80199f, type: 2}
-    Transitions: []
+    Transitions:
+    - {fileID: 11400000, guid: 6d2a8da02e6eb1b4faf7b689f2e0f692, type: 2}
+  - State: {fileID: 11400000, guid: 687b2691ac40741429ca078a3d43bc7d, type: 2}
+    Transitions:
+    - {fileID: 11400000, guid: 1821b1ef10c392b4d8ece30e12ea909f, type: 2}
+  - State: {fileID: 11400000, guid: 313e0892b4a34444c8f0528439d75221, type: 2}
+    Transitions:
+    - {fileID: 11400000, guid: 1821b1ef10c392b4d8ece30e12ea909f, type: 2}
   RegisteredComponents: []
   RegisteredObjects: []

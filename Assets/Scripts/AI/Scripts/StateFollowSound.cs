@@ -2,7 +2,7 @@ using AI.FSMs.UnityIntegration;
 using AI.FSMs.BaseFiles;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StateFollowSound", menuName = "State Machines/StateFollowSound")]
+[CreateAssetMenu(fileName = "StateFollowSound", menuName = "State Machines/States/StateFollowSound")]
 public class StateFollowSound : StateAbstract
 {
     protected override void EntryAction()

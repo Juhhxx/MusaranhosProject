@@ -2,7 +2,7 @@ using AI.FSMs.UnityIntegration;
 using AI.FSMs.BaseFiles;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TransitionReachedSpot", menuName = "State Machines/TransitionReachedSpot")]
+[CreateAssetMenu(fileName = "TransitionReachedSpot", menuName = "State Machines/Transitions/TransitionReachedSpot")]
 public class TransitionReachedSpot : TransitionAbstract
 {
     protected override void Action()
