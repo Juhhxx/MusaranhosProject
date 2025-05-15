@@ -11,6 +11,10 @@ namespace Player
         private List<Letter> letters;
         public List<Letter> Letters => letters;
 
+        public event EventHandler OnItemAdded;
+        public event EventHandler OnItemRemoved;
+        public event EventHandler OnLetterAdded;
+
         private void Start()
         {
             inventory = new Dictionary<Item, int>();
@@ -23,6 +27,7 @@ namespace Player
             if (!inventory.TryAdd(item, 1))
             {
                 inventory[item] += 1;
+                OnItemAdded?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -33,13 +38,17 @@ namespace Player
 
         public void RemoveItem(Item item)
         {
-            if(ContainsItem(item))
+            if (ContainsItem(item))
+            {
                 inventory[item] -= 1;
+                OnItemRemoved?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public void AddLetter(Letter letter)
         {
             letters.Add(letter);
+            OnLetterAdded?.Invoke(this, EventArgs.Empty);
         }
     }
 }

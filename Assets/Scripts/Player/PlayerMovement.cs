@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Misc;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _moveTarget;
     private Quaternion _lastRotation;
     private Quaternion _rotateTarget;
-    private PlayerController _pController;
+    private GameManager _gameManager;
 
     //Conditions
     private bool                _cantGo;
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         
         _playerInput = GetComponent<PlayerInput>();
         _playerController = GetComponent<CharacterController>();
-        _pController = GetComponent<PlayerController>();
+        _gameManager = FindFirstObjectByType<GameManager>();
     }
 
     void Update()
@@ -128,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
             _walkTimer = 0;
             _lastPosition = Vector3.zero;
             OnScoutMove?.Invoke(this, EventArgs.Empty);
-            _pController.IsMoving(false);
+            _gameManager.PlayerWalking(true);
         }
     }
 
@@ -150,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
             _isMoving = true;
             _lastPosition = transform.position;
             _moveTarget = transform.position + transform.forward * _gridSizePlusHalf;
-            _pController.IsMoving(true);
+            _gameManager.PlayerWalking(false);
             return;
         }
 

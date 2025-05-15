@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _moveVector;
     private bool _canMove = true;
     private bool _canDoAction = true;
+    private bool _cantRead;
 
     public event EventHandler OnLetterToggle;
     
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        _playerMovement.MoveVector = _playerInput.actions["Move"].ReadValue<Vector2>();
+        if(_canMove) _playerMovement.MoveVector = _playerInput.actions["Move"].ReadValue<Vector2>();
     }
 
     private void HoldCompass(InputAction.CallbackContext context)
@@ -62,23 +63,32 @@ public class PlayerController : MonoBehaviour
 
     private void ToggleLetters(InputAction.CallbackContext context)
     {
+        if(_cantRead) return;
         _playerLetterReader.ToggleLetters();
         OnLetterToggle?.Invoke(this, EventArgs.Empty);
     }
 
     private void NextLetter(InputAction.CallbackContext context)
     {
+        if(_cantRead) return;
         _playerLetterReader.NextLetter();
     }
 
     private void PreviousLetter(InputAction.CallbackContext context)
     {
+        if(_cantRead) return;
         _playerLetterReader.PreviousLetter();
     }
 
-    public void IsMoving(bool value)
+    public void StopActions(bool value, bool cantRead)
     {
         _canDoAction = !value;
+        _cantRead = cantRead;
         _playerEquipment.StoreEquipment();
+    }
+
+    public void StopMovement(bool value)
+    {
+        _canMove = !value;
     }
 }

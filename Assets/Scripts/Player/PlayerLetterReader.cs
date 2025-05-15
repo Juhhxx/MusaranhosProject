@@ -12,6 +12,7 @@ namespace Player
         private TMP_Text text;
         
         private bool _isReadingLetters;
+        public bool IsReadingLetters => _isReadingLetters;
         private List<Letter> letters;
         private int currentLetter;
 

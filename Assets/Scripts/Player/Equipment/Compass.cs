@@ -36,7 +36,6 @@ namespace Player.Equipment
         public override void Start()
         {
             _animator = GetComponent<Animator>();
-            _needleTarget = GameObject.FindWithTag("Exit").transform;
             _rnd = new Random();
         }
 
