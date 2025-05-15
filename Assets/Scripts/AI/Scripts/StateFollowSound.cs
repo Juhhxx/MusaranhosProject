@@ -13,7 +13,7 @@ public class StateFollowSound : StateAbstract
 
     protected override void EntryAction()
     {
-        Debug.Log("Entering Empty");
+        Debug.Log("Entering FollowSound");
 
         _target = _graph.PlayerPoint;
         _movement.SetNewDestination(_target);
