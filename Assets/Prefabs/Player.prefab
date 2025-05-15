@@ -1323,7 +1323,7 @@ MonoBehaviour:
   _rotateDuration: 0.5
   _layerBlock:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65
   _velocity: {x: 0, y: 0, z: 0}
   _velocityOffGrid: 0
   _stalker: 0

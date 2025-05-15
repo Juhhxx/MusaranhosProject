@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 6806375380314170151}
   - component: {fileID: 6888502794462152730}
   - component: {fileID: 5185675301532931040}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dynamite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1606,6 +1606,10 @@ PrefabInstance:
     - target: {fileID: 6558259221850840928, guid: c8864027d04abb349b0e8192391e2f47, type: 3}
       propertyPath: m_Name
       value: ExitRockFormation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558259221850840928, guid: c8864027d04abb349b0e8192391e2f47, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

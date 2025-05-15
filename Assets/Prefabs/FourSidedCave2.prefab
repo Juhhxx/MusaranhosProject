@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9040281994629168233}
     m_Modifications:
+    - target: {fileID: 5622545536165900333, guid: 4997fb0695d776544b1bf8d4c9a39fd6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5636186941593245987, guid: 4997fb0695d776544b1bf8d4c9a39fd6, type: 3}
       propertyPath: m_Name
       value: Graph Point
