@@ -7,6 +7,7 @@ public class GraphManager : MonoBehaviour
 {
     [SerializeField] private GraphPoint _startPoint;
     [SerializeField] private float _pointDistance;
+    [SerializeField] private LayerMask _raycastLayers;
     [SerializeField] private bool _drawConnections;
     [ReadOnly][SerializeField] private int _playerPoint;
     public GraphPoint PlayerPoint => _graph[_playerPoint];
@@ -80,7 +81,7 @@ public class GraphManager : MonoBehaviour
 
             if (Physics.Raycast(point.transform.position + (point.transform.forward * 1.5f), 
                                 point.transform.forward, 
-                                out RaycastHit hit, _pointDistance - 1.5f))
+                                out RaycastHit hit, _pointDistance - 1.5f, _raycastLayers))
             {
                 GraphPoint p = hit.collider.GetComponent<GraphPoint>();
 
