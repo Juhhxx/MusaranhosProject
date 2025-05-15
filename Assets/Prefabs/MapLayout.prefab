@@ -121,6 +121,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startPoint: {fileID: 4385340866976036751}
   _pointDistance: 15
+  _raycastLayers:
+    serializedVersion: 2
+    m_Bits: 513
   _drawConnections: 1
   _playerPoint: 0
   _points: []

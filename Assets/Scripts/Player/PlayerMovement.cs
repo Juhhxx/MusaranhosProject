@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         _gameManager = FindFirstObjectByType<GameManager>();
         _playerInventory = GetComponent<PlayerInventory>();
         _rnd = new Random();
+        GetComponent<Collider>().enabled = true;
     }
 
     void Update()
