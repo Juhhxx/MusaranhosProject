@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 711088f7c8bf5de42b70cf6bdba0cd1f
+guid: 970d832a77d18eb4daebeaee10704f58
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dynamite Fuse_0
+      name: lanternadaporra-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 108
-        height: 134
+        width: 182
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3913822515ea216418b5b2491d27b56d
-      internalID: -434938766
+      spriteID: d0eaff8d9eeda944286f5a84e58e2dbf
+      internalID: -763687676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dynamite Fuse_1
+      name: lanternadaporra-Sheet_1
       rect:
         serializedVersion: 2
-        x: 108
+        x: 182
         y: 0
-        width: 108
-        height: 134
+        width: 182
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42e67297137b8874d81d9519a7f3288a
-      internalID: 766656966
+      spriteID: 9fc3b2dcaf28fde4b92df847a7b3fb55
+      internalID: -914763310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dynamite Fuse_2
+      name: lanternadaporra-Sheet_2
       rect:
         serializedVersion: 2
-        x: 216
+        x: 364
         y: 0
-        width: 108
-        height: 134
+        width: 182
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b249a9d16647b4c4b9c020f7f3127fa4
-      internalID: -24538775
+      spriteID: 6e868cef98be3a24ba7e118e179818eb
+      internalID: 868072417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dynamite Fuse_3
+      name: lanternadaporra-Sheet_3
       rect:
         serializedVersion: 2
-        x: 324
+        x: 546
         y: 0
-        width: 108
-        height: 134
+        width: 182
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76beaa43e19911d49abbb6cb83c3db16
-      internalID: 562983056
+      spriteID: f4f59ff502f865d4db5f4a65ace1f9f0
+      internalID: 1260231416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dynamite Fuse_4
+      name: lanternadaporra-Sheet_4
       rect:
         serializedVersion: 2
-        x: 432
+        x: 728
         y: 0
-        width: 108
-        height: 134
+        width: 182
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46bf9c2e749c4d248b3175284c42204c
-      internalID: -1669886073
+      spriteID: 309ed57032a9edc468398e9486a7907b
+      internalID: 1541806050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dynamite Fuse_5
+      name: lanternadaporra-Sheet_5
       rect:
         serializedVersion: 2
-        x: 540
+        x: 910
         y: 0
-        width: 108
-        height: 134
+        width: 182
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e49258d0f60a4b43a2f2f1b8d0de24b
-      internalID: -1284522631
+      spriteID: 310cefceee0c74a41b6a8db5953a0c71
+      internalID: -1404233411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dynamite Fuse_6
+      name: lanternadaporra-Sheet_6
       rect:
         serializedVersion: 2
-        x: 648
+        x: 1092
         y: 0
-        width: 108
-        height: 134
+        width: 182
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4d016a56892ec6419462aef71c8b6ef
-      internalID: -525173702
+      spriteID: 750998d6f0863b0479011922be98533c
+      internalID: 962078284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dynamite Fuse_7
+      name: lanternadaporra-Sheet_7
       rect:
         serializedVersion: 2
-        x: 756
+        x: 1274
         y: 0
-        width: 108
-        height: 134
+        width: 182
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c44f85ec673a0c4498fc807d6f86f7e2
-      internalID: 415410265
+      spriteID: cc2bc8774ff455a49bc0a32df0fda4cf
+      internalID: 520020978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dynamite Fuse_8
+      name: lanternadaporra-Sheet_8
       rect:
         serializedVersion: 2
-        x: 864
+        x: 1456
         y: 0
-        width: 108
-        height: 134
+        width: 182
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +288,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7c28ac35b0e92d4da1b54cacff566b5
-      internalID: 664435220
+      spriteID: 400458d65f65970479091a333a2cc726
+      internalID: -561871951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dynamite Fuse_9
+      name: lanternadaporra-Sheet_9
       rect:
         serializedVersion: 2
-        x: 972
+        x: 1638
         y: 0
-        width: 108
-        height: 134
+        width: 182
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,74 +310,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f759e6a62dceccc43be2b777b27d0ffb
-      internalID: 687989805
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dynamite Fuse_10
-      rect:
-        serializedVersion: 2
-        x: 1080
-        y: 0
-        width: 108
-        height: 134
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17846d2b2c30ada44902d991c3717ea7
-      internalID: 1168186887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dynamite Fuse_11
-      rect:
-        serializedVersion: 2
-        x: 1188
-        y: 0
-        width: 108
-        height: 134
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96f58d365c1e7f247b4025d3570dcc9b
-      internalID: 1145440206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dynamite Fuse_12
-      rect:
-        serializedVersion: 2
-        x: 1296
-        y: 0
-        width: 108
-        height: 134
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b73f03b4ac9fa7848ae5e9089bf8f455
-      internalID: -311034820
+      spriteID: ca43835ba784be142ba82b7d16d14b02
+      internalID: -538701843
       vertices: []
       indices: 
       edges: []
@@ -386,7 +320,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7207145167d711842acce222f644adbd
+    spriteID: f2fa8697b2b0d564283a919221642472
     internalID: 0
     vertices: []
     indices: 
@@ -396,19 +330,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dynamite Fuse_0: -434938766
-      Dynamite Fuse_1: 766656966
-      Dynamite Fuse_10: 1168186887
-      Dynamite Fuse_11: 1145440206
-      Dynamite Fuse_12: -311034820
-      Dynamite Fuse_2: -24538775
-      Dynamite Fuse_3: 562983056
-      Dynamite Fuse_4: -1669886073
-      Dynamite Fuse_5: -1284522631
-      Dynamite Fuse_6: -525173702
-      Dynamite Fuse_7: 415410265
-      Dynamite Fuse_8: 664435220
-      Dynamite Fuse_9: 687989805
+      lanternadaporra-Sheet_0: -763687676
+      lanternadaporra-Sheet_1: -914763310
+      lanternadaporra-Sheet_2: 868072417
+      lanternadaporra-Sheet_3: 1260231416
+      lanternadaporra-Sheet_4: 1541806050
+      lanternadaporra-Sheet_5: -1404233411
+      lanternadaporra-Sheet_6: 962078284
+      lanternadaporra-Sheet_7: 520020978
+      lanternadaporra-Sheet_8: -561871951
+      lanternadaporra-Sheet_9: -538701843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

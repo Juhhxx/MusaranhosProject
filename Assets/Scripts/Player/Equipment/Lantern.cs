@@ -74,6 +74,7 @@ namespace Player.Equipment
         {
             LightLevel += lanternGainPerUse;
             OnCrank?.Invoke(this, EventArgs.Empty);
+            _animator.SetTrigger("Crank");
         }
 
         public override void Equip()

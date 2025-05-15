@@ -20,6 +20,7 @@ public class PlayerEquipment : MonoBehaviour
         if (_currentEquipmentEnum == equipmentEnum)
         {
             CurrentEquipment.Use();
+            return;
         }
         
         if(_currentEquipmentEnum != EquipmentEnum.None) StoreEquipment();
