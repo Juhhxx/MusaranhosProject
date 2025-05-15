@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Map
@@ -11,23 +12,25 @@ namespace Map
         
         private Animator animator;
 
+        private void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
+
         public void Enable()
         {
-            SetRequiredItem(Item.Lighter);
-            animator = GetComponent<Animator>();
             animator.SetTrigger("Placed");
-            placedPlayAudio.Play();
+            GetComponent<Collider>().enabled = true;
         }
 
         public override void Interact()
         {
             animator.SetTrigger("Lit");
-            litPlayAudio.Play();
         }
 
         public void Explosion()
         {
-            explosionPlayAudio.Play();
+            animator.SetTrigger("Explosion");
         }
     }
 }
