@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
     private PlayerInteraction _playerInteraction;
     private PlayerMovement _playerMovement;
     private PlayerEquipment _playerEquipment;
+    private PlayerLetterReader _playerLetterReader;
     
     private Vector2 _moveVector;
-    private CharacterController _playerController;
     private bool _canMove = true;
     private bool _canDoAction = true;
+
+    public event EventHandler OnLetterToggle;
     
     void Start()
     {
@@ -22,20 +24,20 @@ public class PlayerController : MonoBehaviour
         _playerInteraction = GetComponent<PlayerInteraction>();
         _playerMovement = GetComponent<PlayerMovement>();
         _playerEquipment = GetComponent<PlayerEquipment>();
-
-        _playerController = GetComponent<CharacterController>();
+        _playerLetterReader = GetComponent<PlayerLetterReader>();
         
         _playerInput.actions["Compass"].started += HoldCompass;
         _playerInput.actions["Compass"].canceled += StoreCompass;
         _playerInput.actions["Lantern"].performed += ChargeLantern;
         _playerInput.actions["Interact"].started += Interact;
+        _playerInput.actions["Letters"].started += ToggleLetters;
+        _playerInput.actions["NextLetter"].started += NextLetter;
+        _playerInput.actions["PreviousLetter"].started += PreviousLetter;
     }
 
     void Update()
     {
         _playerMovement.MoveVector = _playerInput.actions["Move"].ReadValue<Vector2>();
-        //_playerMovement.RotationMov(_moveVector, transform); //Probably change to calling a function in PlayerMovement class
-        //_playerMovement.NoGridMov(_moveVector,_velocity,_playerController, transform);
     }
 
     private void HoldCompass(InputAction.CallbackContext context)
@@ -56,6 +58,22 @@ public class PlayerController : MonoBehaviour
     private void Interact(InputAction.CallbackContext context)
     {
         if(_canDoAction)_playerInteraction.Interact();
+    }
+
+    private void ToggleLetters(InputAction.CallbackContext context)
+    {
+        _playerLetterReader.ToggleLetters();
+        OnLetterToggle?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void NextLetter(InputAction.CallbackContext context)
+    {
+        _playerLetterReader.NextLetter();
+    }
+
+    private void PreviousLetter(InputAction.CallbackContext context)
+    {
+        _playerLetterReader.PreviousLetter();
     }
 
     public void IsMoving(bool value)
