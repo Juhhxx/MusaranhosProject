@@ -1,22 +1,36 @@
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class GraphManager : MonoBehaviour
 {
     [SerializeField] private GraphPoint _startPoint;
     [SerializeField] private float _pointDistance;
     [SerializeField] private bool _drawConnections;
-
+    [ReadOnly][SerializeField] private List<GraphDebugger> _points;
 
     private Dictionary<int,GraphPoint> _graph;
     public IDictionary<int,GraphPoint> Graph => _graph;
     private Stack<GraphPoint> _workingPoints;
     private int _pointNumber;
 
+    [Serializable]
+    public class GraphDebugger
+    {
+        public GraphDebugger(int id, string name)
+        {
+            ID = id;
+            Name = name;
+        }
+        public int ID;
+        public string Name;
+    }
+
     private void Awake()
     {
         _graph = new Dictionary<int, GraphPoint>();
+        _points = new List<GraphDebugger>();
 
         CreateGraph();
     }
@@ -39,14 +53,14 @@ public class GraphManager : MonoBehaviour
     }
     private void RegisterPoint(GraphPoint point)
     {
-        Debug.Log($"Register Point {_pointNumber}");
-
         if (_graph.ContainsValue(point)) return;
+        Debug.Log($"Register Point {_pointNumber}");
 
         point.SetID(_pointNumber);
         point.SetConnections(GetConnections(point));
 
         _graph.Add(_pointNumber, point);
+        _points.Add(new GraphDebugger(_pointNumber, point.transform.parent.gameObject.name));
 
         _pointNumber++;
     }

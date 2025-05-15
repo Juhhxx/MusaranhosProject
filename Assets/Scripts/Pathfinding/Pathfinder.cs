@@ -31,6 +31,7 @@ public class Pathfinder : MonoBehaviour
         Stack<GraphPoint> path = AStar(s, e);
 
         _currentPath = new List<GraphPoint>(path);
+        path.Pop();
 
         return path;
     }

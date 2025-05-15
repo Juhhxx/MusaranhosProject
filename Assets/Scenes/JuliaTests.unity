@@ -723,17 +723,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1158106333 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 930890433311916309, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
-  m_PrefabInstance: {fileID: 1475168186}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 793f41a26c492d541b89cac58acbb8c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1332949954 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2563753529040621115, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
@@ -921,6 +910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1675293021}
   - component: {fileID: 1675293022}
+  - component: {fileID: 1675293025}
   - component: {fileID: 1675293024}
   - component: {fileID: 1675293023}
   m_Layer: 10
@@ -998,7 +988,20 @@ MonoBehaviour:
   _gridBased: 1
   _graphManager: {fileID: 458655357}
   _startPoint: {fileID: 1332949954}
-  _destinationPoint: {fileID: 1158106333}
+--- !u!114 &1675293025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675293020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad496f9f0acfd94aa2be936df7f0a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateMachineModel: {fileID: 11400000, guid: 857bdbee57cddd84485a24605d42c4f9, type: 2}
+  _stateMachine: {fileID: 0}
 --- !u!1 &1924530061
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private GraphManager _graphManager;
     private IDictionary<int,GraphPoint> _graph;
     [SerializeField] private GraphPoint _startPoint;
-    [SerializeField] private GraphPoint _destinationPoint;
+    public GraphPoint StartPoint => _startPoint;
     private Pathfinder _pathfinder;
     private Stack<GraphPoint> _currentPath;
     private GraphPoint _currentPoint;
@@ -32,11 +32,12 @@ public class EnemyMovement : MonoBehaviour
 
         _graph                  = _graphManager.Graph;
         _currentPoint           = _startPoint;
-        _agent.updateRotation   = false;
         _moveTarget             = _startPoint.GetPosition();
+        _currentPath            = new Stack<GraphPoint>();
+        _agent.updateRotation   = false;
+        _moveTimer              = 0f;
 
         transform.position = _currentPoint.GetPosition();
-        SetNewDestination(_destinationPoint);
     }
     private void Update()
     {
@@ -59,9 +60,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void GridMovement()
     {
-        CountTimer();
+        if (_currentPath.Count == 0) return;
 
         if (_moveTimer == 0) GetNextPoint();
+        CountTimer();
     }
     private void CountTimer()
     {
@@ -78,9 +80,10 @@ public class EnemyMovement : MonoBehaviour
     {
         _moveTimer = 0f;
     }
-    private void SetNewDestination(GraphPoint destination)
+    public void SetNewDestination(GraphPoint destination)
     {
         _currentPath = _pathfinder.GetPath(_currentPoint, destination);
+        Debug.Log($"Current Path Size = {_currentPath.Count}");
     }
     private void GetNextPoint()
     {
