@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     
     private Vector2 _moveVector;
     private CharacterController _playerController;
+    private bool _canMove = true;
+    private bool _canDoAction = true;
     
     void Start()
     {
@@ -31,28 +33,28 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        _moveVector = _playerInput.actions["Move"].ReadValue<Vector2>();
+        _playerMovement.MoveVector = _playerInput.actions["Move"].ReadValue<Vector2>();
         //_playerMovement.RotationMov(_moveVector, transform); //Probably change to calling a function in PlayerMovement class
         //_playerMovement.NoGridMov(_moveVector,_velocity,_playerController, transform);
     }
 
     private void HoldCompass(InputAction.CallbackContext context)
     {
-        _playerEquipment.UseEquipment(EquipmentEnum.Compass);
+        if(_canDoAction)_playerEquipment.UseEquipment(EquipmentEnum.Compass);
     }
 
     private void StoreCompass(InputAction.CallbackContext context)
     {
-        _playerEquipment.StoreEquipment();
+        if(_canDoAction)_playerEquipment.StoreEquipment();
     }
 
     private void ChargeLantern(InputAction.CallbackContext context)
     {
-        _playerEquipment.UseEquipment(EquipmentEnum.Lantern);
+        if(_canDoAction)_playerEquipment.UseEquipment(EquipmentEnum.Lantern);
     }
 
     private void Interact(InputAction.CallbackContext context)
     {
-        _playerInteraction.Interact();
+        if(_canDoAction)_playerInteraction.Interact();
     }
 }

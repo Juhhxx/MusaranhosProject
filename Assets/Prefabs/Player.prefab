@@ -332,9 +332,9 @@ MonoBehaviour:
   interferenceUpdateFrequency: 0.1
   interferenceRotationModifier: 10
   interferenceDuration: 0.025
-  rotationSpeed: 0.5
+  rotationSpeed: 1
   modelObject: {fileID: 1255860592075776331}
-  needleObject: {fileID: 29794038629208638}
+  needleObject: {fileID: 7305067521357648423}
 --- !u!95 &201239820836602318
 Animator:
   serializedVersion: 7
@@ -401,7 +401,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.81886786, g: 0.6809936, b: 0.12823774, a: 1}
-  m_Intensity: 1000
+  m_Intensity: 0
   m_Range: 10.2
   m_SpotAngle: 72.25323
   m_InnerSpotAngle: 21.80208
@@ -602,11 +602,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac3423fd771cd54d8ec32e1b21c69f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridSize: 0
+  _gridSizePlusHalf: 15
+  _walkDuration: 3
+  _rotateDuration: 0.5
   _layerBlock:
     serializedVersion: 2
-    m_Bits: 0
-  _velocity: 0
+    m_Bits: 1
+  _velocity: {x: 0, y: 0, z: 0}
+  _velocityOffGrid: 0
+  _stalker: 0
+  _sensitivity: 0
+  _goBackToGrid: 0
 --- !u!114 &6214560464073520085
 MonoBehaviour:
   m_ObjectHideFlags: 0

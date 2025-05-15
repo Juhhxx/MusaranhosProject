@@ -52,7 +52,7 @@ namespace Player.Equipment
         public override void Use()
         {
             LightLevel += lanternGainPerUse;
-            gameObject.AddComponent<SoundClue>();
+            //Call something to give sound clues to monster;
         }
 
         public override void Equip()
