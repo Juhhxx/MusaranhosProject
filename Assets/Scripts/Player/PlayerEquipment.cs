@@ -10,7 +10,8 @@ public class PlayerEquipment : MonoBehaviour
 
     public void StoreEquipment()
     {
-        CurrentEquipment.Unequip();
+        if(_currentEquipmentEnum == EquipmentEnum.None) return;
+        CurrentEquipment.Unequip(); 
         _currentEquipmentEnum = EquipmentEnum.None;
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -7,14 +8,24 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("WalkField")]
     [SerializeField] private int _gridSizePlusHalf;
+    [SerializeField] private float _walkDuration;
+    [SerializeField] private float _rotateDuration;
     [SerializeField] private LayerMask _layerBlock;
-    [SerializeField] private float _camRotateSpeed = 1;
     [SerializeField] private Vector3 _velocity;
     [SerializeField] private float _velocityOffGrid;
     
     private Vector3             _mov;
-    private Vector3            _rotationPerTurn;
-    private Vector3            _rotation;
+    private Vector3             _rotation;
+    private float             _walkTimer;
+    private float             _rotateTimer;
+    private bool _isMoving;
+    private bool _isRotating;
+    private Vector3 _lastPosition;
+    private Vector3 _moveTarget;
+    private Quaternion _lastRotation;
+    private Quaternion _rotateTarget;
+    private PlayerController _pController;
+
     //Conditions
     private bool                _cantGo;
     [SerializeField] private bool _stalker; //Precisarei de um GetBool no futuro
@@ -31,17 +42,22 @@ public class PlayerMovement : MonoBehaviour
     //[SerializeField] private LayerMask _backToGridMask;
     private Vector3 _lastPos;
 
+    public Vector2 MoveVector { get; set; }
+
+    public event EventHandler OnScoutMove;
+
     void Start()
     {
-       _rotationPerTurn = new Vector3(0,90,0);
-       _rotation = Vector3.zero;
+        _rotation = new Vector3(0,90,0);
         
         _playerInput = GetComponent<PlayerInput>();
         _playerController = GetComponent<CharacterController>();
+        _pController = GetComponent<PlayerController>();
     }
 
     void Update()
     {   
+        if(!_isMoving) _lastPos = transform.position;
         _cantGo = Physics.Raycast(transform.position,transform.forward, _gridSizePlusHalf, _layerBlock);
         _mouseDir = _playerInput.actions["Look"].ReadValue<Vector2>();
         
@@ -52,18 +68,16 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(!_stalker && _goBackToGrid)
         {
-            if (_lastPos != Vector3.zero){ResetGrid();}
+            if (_lastPos != Vector3.zero)
+            {
+                transform.position = Vector3.MoveTowards(transform.position,_lastPos,_velocity.magnitude*Time.deltaTime);
+                transform.rotation = Quaternion.identity;
+            }
             else {OffGridMov();}
 
             if (transform.position == _lastPos) {_goBackToGrid = false;}
         }
-        else if (!_stalker && !_goBackToGrid) 
-        {
-            Debug.Log("doing grid movements");
-            RotateVector();
-            Rotate();
-            GridMov();
-        }
+        else if (!_stalker && !_goBackToGrid) {GridMov();}
     }
 
     void OnTriggerEnter(Collider other)
@@ -90,39 +104,85 @@ public class PlayerMovement : MonoBehaviour
         float rotation = _mouseDir.x * _sensitivity;
         transform.Rotate(0f,rotation,0f);
 
-        if (Input.GetKey(KeyCode.W)) 
-        {_playerController.Move(transform.forward*_velocityOffGrid*Time.fixedDeltaTime);}
+        if (MoveVector.y > 0) 
+        {_playerController.Move(transform.forward * (_velocityOffGrid * Time.fixedDeltaTime));}
     }
 
     void GridMov()
     {
-        if (Input.GetKeyDown(KeyCode.W) && !_cantGo)
-            {_playerController.Move(transform.forward*_velocity.z);}
-    }
-
-
-    void ResetGrid()
-    {
-        transform.position = Vector3.MoveTowards(transform.position,_lastPos,_velocity.magnitude*Time.deltaTime);
-        transform.rotation = Quaternion.identity;
-    }
-
-    private void RotateVector()
-    {
-        if (Input.GetKeyDown(KeyCode.A)) 
-        { 
-            _rotation -= _rotationPerTurn;//set vector3 rotation to -90 at Y Axis 
-        }
-        if (Input.GetKeyDown(KeyCode.D)) 
+        if (_isMoving) Moving();
+        else if (_isRotating) Rotating();
+        else
         {
-            _rotation += _rotationPerTurn;//set vector3 rotation to 90 at Y Axis 
+            GetMovingOrRotating();
         }
     }
 
-    private void Rotate()
+    private void Moving()
     {
-        Quaternion _rotQua = Quaternion.Euler(_rotation);
-        transform.localRotation = Quaternion.Slerp(transform.rotation,_rotQua,_camRotateSpeed*Time.deltaTime);
-        Debug.Log(_rotation);
+        _walkTimer += Time.deltaTime;
+        transform.position = Vector3.Lerp(_lastPosition,_moveTarget,_walkTimer / _walkDuration);
+        if (_walkTimer >= _walkDuration)
+        {
+            _isMoving = false;
+            _walkTimer = 0;
+            _lastPosition = Vector3.zero;
+            OnScoutMove?.Invoke(this, EventArgs.Empty);
+            _pController.IsMoving(false);
+        }
     }
+
+    private void Rotating()
+    {
+        _rotateTimer += Time.deltaTime;
+        transform.rotation = Quaternion.Lerp(_lastRotation,_rotateTarget,_rotateTimer / _rotateDuration);
+        if (_rotateTimer >= _rotateDuration)
+        {
+            _isRotating = false;
+            _rotateTimer = 0;
+        }
+    }
+
+    private void GetMovingOrRotating()
+    {
+        if (MoveVector.y > 0 && !_cantGo)
+        {
+            _isMoving = true;
+            _lastPosition = transform.position;
+            _moveTarget = transform.position + transform.forward * _gridSizePlusHalf;
+            _pController.IsMoving(true);
+            return;
+        }
+
+        if (MoveVector.x != 0)
+        {
+            _isRotating = true;
+            _lastRotation = transform.rotation;
+            _rotateTarget = transform.rotation * Quaternion.AngleAxis(MoveVector.x > 0 ? 90 : -90, Vector3.up);
+        }
+    }
+
+    public void StartChase()
+    {
+        _stalker = true;
+    }
+
+    public void StartScout()
+    {
+        _stalker = false;
+    }
+
+    // public void NoGridMov(Vector2 dir, float velocity, CharacterController _playerController, Transform _playerTrans)
+    // {
+    //     if (dir.magnitude > 0) _mov = _playerTrans.forward*velocity; 
+    //     else _mov = Vector2.zero;
+
+    //     _playerController.Move(_mov);
+    // }
+
+    // public void RotationMov(Vector2 dir, Transform _trans)
+    // {
+    //     if(dir.x > 0){_trans.Rotate(_rotation);}
+    //     else if(dir.x < 0){_trans.Rotate(-_rotation);}
+    // }
 }

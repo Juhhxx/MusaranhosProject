@@ -24,18 +24,18 @@ namespace Player.Equipment
         
         [Header("Model Options")]
         [SerializeField] private GameObject modelObject;
-        [SerializeField] private GameObject needleObject;
+        [SerializeField] private Transform needleObject;
         private Animator _animator;
         
         
         private bool _unequipped = true;
-        private GameObject _needleTarget;
+        private Transform _needleTarget;
         private Random _rnd;
         
         public override void Start()
         {
             _animator = GetComponent<Animator>();
-            _needleTarget = GameObject.FindWithTag("ExitRoom");
+            _needleTarget = GameObject.FindWithTag("Exit").transform;
             _rnd = new Random();
         }
 
@@ -122,6 +122,11 @@ namespace Player.Equipment
             _animator.SetTrigger("Unequip");
             modelObject.SetActive(false);
             _unequipped = true;
+        }
+
+        public void SetNeedleTarget(Transform needleTarget)
+        {
+            _needleTarget = needleTarget;
         }
     }
 }
