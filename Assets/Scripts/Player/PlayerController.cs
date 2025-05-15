@@ -57,4 +57,10 @@ public class PlayerController : MonoBehaviour
     {
         if(_canDoAction)_playerInteraction.Interact();
     }
+
+    public void IsMoving(bool value)
+    {
+        _canDoAction = !value;
+        _playerEquipment.StoreEquipment();
+    }
 }

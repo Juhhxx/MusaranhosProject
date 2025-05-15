@@ -128,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
             _walkTimer = 0;
             _lastPosition = Vector3.zero;
             OnScoutMove?.Invoke(this, EventArgs.Empty);
+            _pController.IsMoving(false);
         }
     }
 
@@ -149,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
             _isMoving = true;
             _lastPosition = transform.position;
             _moveTarget = transform.position + transform.forward * _gridSizePlusHalf;
+            _pController.IsMoving(true);
             return;
         }
 
