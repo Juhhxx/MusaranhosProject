@@ -1159,6 +1159,7 @@ MonoBehaviour:
   itemPopupAlpha: {fileID: 1418502798647949669}
   letterPopupText: {fileID: 8305144349545449819}
   letterPopupAlpha: {fileID: 555298319661623767}
+  popupDuration: 0
   gameOverUI: {fileID: 0}
   fullScreenIcon: {fileID: 0}
   disabledToggleSprite: {fileID: 0}
@@ -1698,7 +1699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7670187804275147150
 RectTransform:
   m_ObjectHideFlags: 0
