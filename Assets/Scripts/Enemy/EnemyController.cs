@@ -21,6 +21,14 @@ public class EnemyController : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _flashed = false;
         _shived = false;
+        _hearSound = false;
+        _agent.enabled = false;
+
+    }
+
+    private void Update()
+    {
+        if (dangerLevel > 0 && !_agent.enabled) _agent.enabled = true;
     }
 
     public void Flashed(bool value) => _flashed = value;
