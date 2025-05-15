@@ -11,7 +11,7 @@ namespace Map
         
         private Animator animator;
 
-        public void Start()
+        public void Enable()
         {
             SetRequiredItem(Item.Lighter);
             animator = GetComponent<Animator>();
