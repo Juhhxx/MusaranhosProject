@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Map
 {
@@ -8,15 +9,17 @@ namespace Map
     public class InteractiveObject : MonoBehaviour
     {
         [Header("Interaction Options")]
-        [SerializeField] private Item requiredItem;
-        [SerializeField] private Item rewardItem;
-
+        [SerializeField] protected Item requiredItem;
+        [SerializeField] private Item[] rewardItem;
+        public UnityEvent OnInteract;
+        
         public Item RequiredItem => requiredItem;
-        public Item RewardItem => rewardItem;
+        public Item[] RewardItem => rewardItem;
 
         public virtual void Interact()
         {
             enabled = false;
+            OnInteract.Invoke();
         }
 
         public void SetRequiredItem(Item item)

@@ -5,6 +5,7 @@
         None,
         Shiv,
         Dynamite,
-        Lighter
+        Lighter,
+        Block
     }
 }

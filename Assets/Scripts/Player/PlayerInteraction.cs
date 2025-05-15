@@ -30,7 +30,10 @@ public class PlayerInteraction : MonoBehaviour
         var detectedObject = Detector.GetClosestInArea<InteractiveObject>(transform, interactionRadius, interactiveLayerMask);
         if (CanInteract(detectedObject))
         {
-            if(detectedObject.RewardItem != Item.None) playerInventory.AddItem(detectedObject.RewardItem);
+            foreach (var item in detectedObject.RewardItem)
+            {
+                if(item != Item.None && item != Item.Block) playerInventory.AddItem(item);
+            }
             detectedObject.Interact();   
         }
     }
