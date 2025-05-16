@@ -15,17 +15,16 @@ namespace Player
         public bool IsReadingLetters => _isReadingLetters;
         private List<Letter> letters;
         private int currentLetter;
+        
+        public int CurrentLetter => currentLetter;
+        public List<Letter> Letters => letters;
 
         public event EventHandler OnLettersToggle;
         public event EventHandler OnReadingLetterChanged;
-        
-        private void Start()
-        {
-            letters = GetComponent<PlayerInventory>().Letters;
-        }
 
         public void ToggleLetters()
         {
+            letters = GetComponent<PlayerInventory>().Letters;
             if(letters.Count == 0) return;
             _isReadingLetters = !_isReadingLetters;
             OnLettersToggle?.Invoke(this, EventArgs.Empty);

@@ -1,4 +1,5 @@
 ﻿using System;
+using Player;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,8 +19,13 @@ namespace Map
 
         public virtual void Interact()
         {
-            enabled = false;
+            var temp = FindFirstObjectByType<PlayerInventory>();
+            foreach (Item item in rewardItem)
+            {
+                if(item != Item.None) temp.AddItem(item);
+            }
             OnInteract.Invoke();
+            enabled = false;
         }
 
         public void SetRequiredItem(Item item)

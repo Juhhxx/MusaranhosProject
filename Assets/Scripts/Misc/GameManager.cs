@@ -75,20 +75,19 @@ namespace Misc
         private void OnLettersToggle(object sender, EventArgs e)
         {
             var reading = playerLetterReader.IsReadingLetters;
-            StopPlayTime(reading);
             playerController.StopMovement(reading);
             playerController.StopActions(reading, !reading);
-            // Call UI
+            uiManager.ToggleLetters(reading);
         }
 
         private void OnReadingLetterChanged(object sender, EventArgs e)
         {
-            // Call UI
+            uiManager.ChangeLetters();
         }
 
         private void OnItemAdded(object sender, EventArgs e)
         {
-            //Call UI
+            uiManager.PickedUpItem(playerInventory.NewItem);
         }
 
         private void OnItemRemoved(object sender, EventArgs e)
@@ -98,7 +97,7 @@ namespace Misc
 
         private void OnLetterAdded(object sender, EventArgs e)
         {
-            //Call UI
+            uiManager.PickedUpLetter();
         }
 
         private void OnNewSound(object sender, EventArgs e)
