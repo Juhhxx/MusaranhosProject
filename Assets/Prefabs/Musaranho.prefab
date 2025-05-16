@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 213922649980185355}
   - component: {fileID: 5527752015034901374}
   - component: {fileID: 3032390733609881663}
+  - component: {fileID: 7114519724582006225}
   m_Layer: 10
   m_Name: Musaranho
   m_TagString: Untagged
@@ -132,6 +133,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   danger1Voice: {fileID: 5082539693407413868}
   danger2Voice: {fileID: 4471443289896260051}
+--- !u!95 &7114519724582006225
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115624351576276520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5d0c84c11c5e3c4aa542190f32cce8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1139674574303104202
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,8 +356,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.92, y: 1.08, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8275170199656304849}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -369,7 +392,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: daff739ccc719b8419596e389b7b2602, type: 2}
+  - {fileID: 2100000, guid: 012870f5d0c0e10479135158ce6be45c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
