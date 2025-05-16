@@ -12,6 +12,7 @@ namespace Player.Equipment
         [SerializeField] private float maxLightLevel;
         [SerializeField] private float lanternGainPerUse;
         [SerializeField] private float lanternLossPerSecond;
+        [SerializeField] private LayerMask _raycastMask;
         [SerializeField] private float unequippedLossMultiplier;
         
         [Header("Sound Options")]
@@ -74,7 +75,7 @@ namespace Player.Equipment
         private void CheckFlashing()
         {
             EnemyController temp;
-            if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _lightLevel * raycastMultiplier))
+            if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _lightLevel * raycastMultiplier, _raycastMask))
                 if ((temp = hit.collider.gameObject.GetComponent<EnemyController>()) != null)
                 {
                     temp.Flashed(true);
