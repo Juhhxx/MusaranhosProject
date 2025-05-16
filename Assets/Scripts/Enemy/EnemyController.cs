@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent _agent;
 
     private int _dangerLevel = 0;
-    public int _DangerLevel => _dangerLevel;
+    public int DangerLevel => _dangerLevel;
     public event EventHandler OnAttack;
 
     private void Start()
