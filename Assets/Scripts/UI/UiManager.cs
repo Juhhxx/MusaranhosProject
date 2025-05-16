@@ -110,7 +110,10 @@ public class UiManager : MonoBehaviour
         FullScreen = FullScreen;
         playerMovement = FindFirstObjectByType<PlayerMovement>();
         var postProcessing = FindFirstObjectByType<Volume>();
-        if (!postProcessing.profile.TryGet(out gammaController)) return;
+        if (postProcessing != null)
+        {
+            if (!postProcessing.profile.TryGet(out gammaController)) return;
+        }
         gameManager = FindFirstObjectByType<GameManager>();
     }
 

@@ -2,6 +2,7 @@
 using Player;
 using Player.Equipment;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Compass = Player.Equipment.Compass;
 
 namespace Misc
@@ -18,6 +19,7 @@ namespace Misc
         private int dangerLevel;
         private UiManager uiManager;
         private EnemyController enemyController;
+        [SerializeField] private Animator jumpscareAnimator; 
 
         public event EventHandler OnScoutMove;
         
@@ -44,6 +46,7 @@ namespace Misc
             uiManager = FindFirstObjectByType<UiManager>();
             player.OnScoutMove += OnPlayerScoutMove;
             player.OnShiv += OnShiv;
+            player.OnDeath += OnDeath;
             player.OnScoutMove += ScoutMove;
             playerInteraction.OnInteract += OnNewSound;
             playerController.OnPause += OnPause;
@@ -134,6 +137,7 @@ namespace Misc
         private void OnAttack(object sender, EventArgs e)
         {
             playerController.GetAttacked();
+            player.GetAttacked();
             
         }
 
@@ -144,8 +148,23 @@ namespace Misc
 
         private void OnShiv(object sender, EventArgs e)
         {
-            enemyController.Shived(true);
+            jumpscareAnimator.SetTrigger("Shiv");
+        }
+
+        public void AttackEnd()
+        {
             playerController.EscapedAttack();
+            enemyController.Shived(true);
+        }
+
+        private void OnDeath(object sender, EventArgs e)
+        {
+            jumpscareAnimator.SetTrigger("Death");
+        }
+
+        public void BackToMenu()
+        {
+            SceneManager.LoadScene("MainMenu");
         }
 
         private void ScoutMove(object sender, EventArgs e)

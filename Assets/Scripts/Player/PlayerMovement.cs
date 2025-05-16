@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     public event EventHandler OnScoutMove;
     public event EventHandler OnNoise;
     public event EventHandler OnShiv;
+    public event EventHandler OnDeath;
 
     void Start()
     {  
@@ -198,5 +199,16 @@ public class PlayerMovement : MonoBehaviour
     public void SetSensitivity(float value)
     {
          _sensitivity = value;
+    }
+
+    public void GetAttacked()
+    {
+        if (_playerInventory.ContainsItem(Item.Shiv))
+        {
+            _playerInventory.RemoveItem(Item.Shiv);
+            OnShiv?.Invoke(this, EventArgs.Empty);
+            return;
+        }
+        OnDeath?.Invoke(this, EventArgs.Empty);
     }
 }
