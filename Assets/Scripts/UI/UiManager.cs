@@ -28,13 +28,11 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
 
     [Header("Settings Elements")]
-    [SerializeField] private Image fullScreenIcon;
-    [SerializeField] private Sprite disabledToggleSprite;
-    [SerializeField] private Sprite enabledToggleSprite;
     [SerializeField] private Slider sensitivitySlider;
     [SerializeField] private Slider gammaSlider;
     [SerializeField] private Slider masterVolume;
     [SerializeField] private Slider sfxVolume;
+    [SerializeField] private Slider voicesVolume;
     [SerializeField] private Slider musicVolume;
     
     private PlayerMovement playerMovement;
@@ -68,7 +66,7 @@ public class UiManager : MonoBehaviour
         set
         {
             PlayerPrefs.SetFloat("Gamma", value);
-            gammaController.gamma.Override(new Vector4(value,value,value,1f));
+            if(gammaController != null) gammaController.gamma.Override(new Vector4(value,value,value,1f));
         }
     }
 
@@ -112,7 +110,7 @@ public class UiManager : MonoBehaviour
         FullScreen = FullScreen;
         playerMovement = FindFirstObjectByType<PlayerMovement>();
         var postProcessing = FindFirstObjectByType<Volume>();
-        if (!postProcessing.profile.TryGet(out gammaController)) throw new System.NullReferenceException(nameof(gammaController));
+        if (!postProcessing.profile.TryGet(out gammaController)) return;
         gameManager = FindFirstObjectByType<GameManager>();
     }
 
@@ -156,11 +154,6 @@ public class UiManager : MonoBehaviour
     {
         gameManager.Unpause();
         pauseMenu.SetActive(false);
-    }
-
-    public void ReturnToMenuButton()
-    {
-        OpenConfirmMenu();
     }
 
     public void OpenOptionsMenu()

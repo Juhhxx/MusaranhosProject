@@ -12,7 +12,7 @@ public class EventTrigger : MonoBehaviour
         _collider = GetComponent<Collider>(); 
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {

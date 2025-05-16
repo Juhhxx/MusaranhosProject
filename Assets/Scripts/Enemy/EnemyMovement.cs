@@ -125,7 +125,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Move()
     {
-        _agent.destination = _moveTarget;
+        if(!_agent.enabled) _agent.destination = _moveTarget;
     }
 
     private void OnScoutMove(object sender, EventArgs e)

@@ -12,6 +12,7 @@ namespace Misc
         private Lantern lantern;
         private PlayerMovement player;
         private PlayerController playerController;
+        private PlayerInteraction playerInteraction;
         private PlayerInventory playerInventory;
         private PlayerLetterReader playerLetterReader;
         private int dangerLevel;
@@ -37,12 +38,14 @@ namespace Misc
             enemyController = FindFirstObjectByType<EnemyController>();
             playerLetterReader = FindFirstObjectByType<PlayerLetterReader>();
             playerInventory = FindFirstObjectByType<PlayerInventory>();
+            playerInteraction = FindFirstObjectByType<PlayerInteraction>();
             playerController = FindFirstObjectByType<PlayerController>();
             lantern = FindFirstObjectByType<Lantern>();
             uiManager = FindFirstObjectByType<UiManager>();
             player.OnScoutMove += OnPlayerScoutMove;
             player.OnShiv += OnShiv;
             player.OnScoutMove += ScoutMove;
+            playerInteraction.OnInteract += OnNewSound;
             playerController.OnPause += OnPause;
             playerLetterReader.OnLettersToggle += OnLettersToggle;
             playerLetterReader.OnReadingLetterChanged += OnReadingLetterChanged;
@@ -148,6 +151,11 @@ namespace Misc
         private void ScoutMove(object sender, EventArgs e)
         {
             OnScoutMove?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void UpDangerLevel()
+        {
+            DangerLevel++;
         }
     }
 }

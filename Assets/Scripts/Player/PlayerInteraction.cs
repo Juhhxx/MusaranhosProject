@@ -12,6 +12,8 @@ public class PlayerInteraction : MonoBehaviour
     private bool _canInteract = true;
     
     private PlayerInventory playerInventory;
+    
+    public event EventHandler OnInteract;
 
     private void Start()
     {
@@ -35,6 +37,7 @@ public class PlayerInteraction : MonoBehaviour
                 if(item != Item.None && item != Item.Block) playerInventory.AddItem(item);
             }
             detectedObject.Interact();   
+            OnInteract?.Invoke(this, EventArgs.Empty);
         }
     }
 
