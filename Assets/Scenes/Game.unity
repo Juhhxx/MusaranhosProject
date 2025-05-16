@@ -1810,7 +1810,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4430530638585738389, guid: e40e8bc9b240e254aa8f282a08d57dd0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -903
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430530638585738394, guid: e40e8bc9b240e254aa8f282a08d57dd0, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4430530639148212004, guid: e40e8bc9b240e254aa8f282a08d57dd0, type: 3}
       propertyPath: canvasGroup
