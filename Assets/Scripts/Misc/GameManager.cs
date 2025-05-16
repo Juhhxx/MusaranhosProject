@@ -155,9 +155,9 @@ namespace Misc
             jumpscareAnimator.SetTrigger("Death");
         }
 
-        public void BackToMenu()
+        public void DeathScreen()
         {
-            SceneManager.LoadScene("MainMenu");
+            uiManager.DeathScreen();
         }
 
         private void ScoutMove(object sender, EventArgs e)

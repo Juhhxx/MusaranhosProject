@@ -32,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
     private bool _atTarget = false;
     public bool AtTarget => _atTarget;
     private NavMeshAgent _agent;
+    private Animator _animator;
     
     private void Start()
     {
@@ -42,6 +43,7 @@ public class EnemyMovement : MonoBehaviour
         _currentPath            = new Stack<GraphPoint>();
         _agent.updateRotation   = false;
         _moveTimer              = 0f;
+        _animator               = GetComponent<Animator>();
 
         gameManager.OnScoutMove += OnScoutMove;
         GridTeleport(_startPoint);
@@ -53,6 +55,7 @@ public class EnemyMovement : MonoBehaviour
 
         LookAtTarget();
         Move();
+        _animator.SetBool("Chase", !_gridBased);
     }
 
     private void LookAtTarget()

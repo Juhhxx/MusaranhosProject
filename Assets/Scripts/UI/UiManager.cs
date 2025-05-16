@@ -28,6 +28,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private float popupDuration;
     [SerializeField] private Image letterImage;
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject deathScreen;
 
     [Header("Settings Elements")]
     [SerializeField] private Slider sensitivitySlider;
@@ -248,6 +249,11 @@ public class UiManager : MonoBehaviour
     public void ChangeLetters()
     {
         letterImage.sprite = playerLetterReader.Letters[playerLetterReader.CurrentLetter].Image;
+    }
+
+    public void DeathScreen()
+    {
+        deathScreen.SetActive(true);
     }
     
 }

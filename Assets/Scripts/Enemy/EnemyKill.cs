@@ -13,7 +13,7 @@ public class EnemyKill : MonoBehaviour
 
     public void Death()
     {
-        gameManager.BackToMenu();
+        gameManager.DeathScreen();
     }
 
     public void Missed()

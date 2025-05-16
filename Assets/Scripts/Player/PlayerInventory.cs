@@ -21,7 +21,6 @@ namespace Player
             inventory = new Dictionary<Item, int>();
             letters = new List<Letter>();
             AddItem(Item.None);
-            AddItem(Item.Shiv);
         }
 
         public void AddItem(Item item)
