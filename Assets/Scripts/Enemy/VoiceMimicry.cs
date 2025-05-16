@@ -26,7 +26,7 @@ namespace Enemy
         {
             if (dangerLevel != eController._DangerLevel)
             {
-                currentSoundPlayer.StopPlaying();
+                if(currentSoundPlayer != null) currentSoundPlayer.StopPlaying();
                 dangerLevel = eController._DangerLevel;
                 if(dangerVoices.Length >= dangerLevel) currentSoundPlayer = dangerVoices[dangerLevel-1];
             }

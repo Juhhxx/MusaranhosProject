@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using System;
+using Player;
 using Sound;
 using UnityEngine;
 
@@ -9,6 +10,11 @@ namespace Map
         [SerializeField] private Letter letterReward;
         [SerializeField] private Item realRequiredItem;
         private IntervaledSoundPlayer voicePlayer;
+        
+        private void Start()
+        {
+            voicePlayer = GetComponent<IntervaledSoundPlayer>();
+        }
 
         public override void Interact()
         {
