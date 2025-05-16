@@ -2,6 +2,7 @@ using System;
 using Map;
 using Misc;
 using Player;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = System.Random;
@@ -44,10 +45,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput _playerInput;
     private Vector2 _mouseDir;
 
-    [Header("Back to the Grid")]
-    [SerializeField] private bool _goBackToGrid;
-    private Vector3 _triggerPos;
-
     public Vector2 MoveVector { get; set; }
     private Random _rnd;
     public event EventHandler OnScoutMove;
@@ -57,53 +54,28 @@ public class PlayerMovement : MonoBehaviour
     
 
     void Start()
-    {  
+    {
         _playerInput = GetComponent<PlayerInput>();
         _playerController = GetComponent<CharacterController>();
         _gameManager = FindFirstObjectByType<GameManager>();
         _playerInventory = GetComponent<PlayerInventory>();
         _rnd = new Random();
         GetComponent<Collider>().enabled = true;
+        FindFirstObjectByType<EnemyController>().OnLostChase += ResetToGrid;
     }
 
     void Update()
     {   
         _cantGo = Physics.Raycast(transform.position,transform.forward, _gridSizePlusHalf, _layerBlock);
         _mouseDir = _playerInput.actions["Look"].ReadValue<Vector2>();
-        
+
         if (_stalker)
         {
-            _goBackToGrid = true;
             OffGridMov();
         }
-        else if(!_stalker && _goBackToGrid)
+        else
         {
-            if (_triggerPos != Vector3.zero)
-            {
-                transform.position = Vector3.MoveTowards(transform.position,_triggerPos,_velocity.magnitude*Time.deltaTime);
-                transform.rotation = Quaternion.identity;
-            }
-            else {OffGridMov();}
-
-            if (transform.position == _triggerPos) {_goBackToGrid = false;}
-        }
-        else if (!_stalker && !_goBackToGrid) {GridMov();}
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "EditorOnly")
-        {
-            _triggerPos = other.transform.position;
-            _triggerPos.y = transform.position.y;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "EditorOnly")
-        {
-            _triggerPos = Vector3.zero; 
+            GridMov();
         }
     }
 
@@ -123,10 +95,18 @@ public class PlayerMovement : MonoBehaviour
         else GetMovingOrRotating();
     }
 
+    public void ResetToGrid(object sender, EventArgs args)
+    {
+        Transform point = Detector.GetClosestInArea<GraphPoint>(transform, 15f, LayerMask.NameToLayer("GraphPoint")).transform;
+
+        transform.position = point.position;
+        transform.rotation = quaternion.identity;
+    }
+
     private void Moving()
     {
         _walkTimer += Time.deltaTime;
-        transform.position = Vector3.Lerp(_lastPosition,_moveTarget,_walkTimer / _walkDuration);
+        transform.position = Vector3.Lerp(_lastPosition, _moveTarget, _walkTimer / _walkDuration);
         NoiseUpdate();
         if (_walkTimer >= _walkDuration)
         {

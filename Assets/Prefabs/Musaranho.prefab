@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4274090749157510822}
   - component: {fileID: 9011005652101361554}
+  - component: {fileID: 7114519724582006225}
   - component: {fileID: 5589504360331934643}
   - component: {fileID: 9054321547500579872}
-  - component: {fileID: 7114519724582006225}
   - component: {fileID: 213922649980185355}
   - component: {fileID: 5527752015034901374}
   - component: {fileID: 3032390733609881663}
@@ -64,6 +64,28 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &7114519724582006225
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115624351576276520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5d0c84c11c5e3c4aa542190f32cce8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5589504360331934643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,28 +117,6 @@ MonoBehaviour:
   _gridBased: 1
   _graphManager: {fileID: 0}
   _startPoint: {fileID: 0}
---- !u!95 &7114519724582006225
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115624351576276520}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5d0c84c11c5e3c4aa542190f32cce8d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &213922649980185355
 MonoBehaviour:
   m_ObjectHideFlags: 0
