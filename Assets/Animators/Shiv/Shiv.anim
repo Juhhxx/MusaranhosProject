@@ -2437,14 +2437,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: Pause
+    functionName: PlayShiv
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: PlayShiv
+    functionName: Pause
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -2457,7 +2457,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 18.95
+  - time: 18.883333
     functionName: Resume
     data: 
     objectReferenceParameter: {fileID: 0}
