@@ -5,14 +5,16 @@ namespace Sound
     public class SoundPause : MonoBehaviour
     {
         [SerializeField] private AudioSource[] audio;
-        [SerializeField] private AudioSource shiv;
-        [SerializeField] private AudioSource death;
+        [SerializeField] private PlayAudio shiv;
+        [SerializeField] private PlayAudio death;
 
         public void Pause()
         {
+            print("a");
             foreach (var a in audio)
             {
-                a.Pause();
+                print("b");
+                a.volume = 0f;
             }
         }
 
@@ -20,7 +22,7 @@ namespace Sound
         {
             foreach (var a in audio)
             {
-                a.UnPause();
+                a.volume = 1f;
             }
         }
 

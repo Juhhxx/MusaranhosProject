@@ -4341,12 +4341,12 @@ MonoBehaviour:
   letterImage: {fileID: 6333946931429791998}
   gameOverUI: {fileID: 0}
   deathScreen: {fileID: 344814000499855635}
-  sensitivitySlider: {fileID: 0}
-  gammaSlider: {fileID: 0}
-  masterVolume: {fileID: 0}
-  sfxVolume: {fileID: 0}
-  voicesVolume: {fileID: 0}
-  musicVolume: {fileID: 0}
+  sensitivitySlider: {fileID: 881203974014897410}
+  gammaSlider: {fileID: 9122371008470206659}
+  masterVolume: {fileID: 9048142459146556793}
+  sfxVolume: {fileID: 7708085168680627365}
+  voicesVolume: {fileID: 4682972343813346033}
+  musicVolume: {fileID: 4349425593140563881}
 --- !u!1 &4904762830905252438
 GameObject:
   m_ObjectHideFlags: 0
@@ -6675,7 +6675,6 @@ GameObject:
   - component: {fileID: 3430325414837599638}
   - component: {fileID: 3024169066824221419}
   - component: {fileID: 846463712428475039}
-  - component: {fileID: 146543990727885088}
   m_Layer: 0
   m_Name: Death
   m_TagString: Untagged
@@ -6762,15 +6761,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &146543990727885088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9200592201311739760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c94377d771474f508608b3b280fb616c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
