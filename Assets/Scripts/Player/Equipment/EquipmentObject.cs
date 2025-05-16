@@ -7,9 +7,9 @@ namespace Player
     {
         
         [Header("Audio Options")]
-        [SerializeField] private PlayAudio pullUpAudio;
-        [SerializeField] private PlayAudio pullDownAudio;
-        [SerializeField] private PlayAudio useAudio;
+        [SerializeField] protected PlayAudio pullUpAudio;
+        [SerializeField] protected PlayAudio pullDownAudio;
+        [SerializeField] protected PlayAudio useAudio;
         
         public event EventHandler OnUnequip;
         

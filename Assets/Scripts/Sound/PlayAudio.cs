@@ -10,7 +10,7 @@ public class PlayAudio : MonoBehaviour
 	[SerializeField]
 	private AudioMixerGroup _audioMixer;
 
-	private AudioSource _audioSource;
+	public AudioSource _audioSource;
 
 	[SerializeField]
 	private bool _isLoop;

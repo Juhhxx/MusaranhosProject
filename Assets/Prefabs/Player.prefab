@@ -222,6 +222,7 @@ MonoBehaviour:
   _audioClip:
   - {fileID: 8300000, guid: 078bd51aaaae3464c994c4ca4728a5a3, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!82 &551895119302764426
@@ -405,6 +406,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e185020aebb57c84e82e279a7d3bafbe, type: 3}
   - {fileID: 8300000, guid: 7a0a86496b745194bb497e064928dd57, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!82 &765580745538705400
@@ -545,6 +547,93 @@ Transform:
   - {fileID: 7265188636228987523}
   m_Father: {fileID: 2012314810588500243}
   m_LocalEulerAnglesHint: {x: 13.666, y: 0, z: 0}
+--- !u!1 &1424691062725165728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254204578797845019}
+  - component: {fileID: 7292559193954806967}
+  m_Layer: 0
+  m_Name: Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1254204578797845019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424691062725165728}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3255599756428149603}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &7292559193954806967
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424691062725165728}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2114536904498529085
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +725,9 @@ MonoBehaviour:
   lanternGainPerUse: 0.5
   lanternLossPerSecond: 1
   unequippedLossMultiplier: 2
+  maxSoundVolume: 1.1
+  soundGain: 0.25
+  SoundLoss: 0.5
   raycastMultiplier: 2
 --- !u!95 &875262807094226664
 Animator:
@@ -805,6 +897,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7de0b1701af963e459e49966e4f80f9f, type: 3}
   - {fileID: 8300000, guid: f8cea482b20c93b4ca8e3d3782dd94eb, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!1 &2489514497743654487
@@ -855,6 +948,7 @@ MonoBehaviour:
   _audioClip:
   - {fileID: 8300000, guid: 6ac96d7c4b26a6a4aac9c8b727b6cf50, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!82 &4915262227444484811
@@ -1717,6 +1811,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7de0b1701af963e459e49966e4f80f9f, type: 3}
   - {fileID: 8300000, guid: f8cea482b20c93b4ca8e3d3782dd94eb, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!1 &5703860636784876170
@@ -2115,6 +2210,7 @@ MonoBehaviour:
   _audioClip:
   - {fileID: 8300000, guid: d42ffd24f0e35814e86ca334e931f34d, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!82 &5559332844531135609
@@ -2431,6 +2527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3255599756428149603}
+  - component: {fileID: 6628692743437173173}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -2452,8 +2549,31 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2923078921365447238}
+  - {fileID: 1254204578797845019}
   m_Father: {fileID: 3606346162807089310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6628692743437173173
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940478359629303981}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 82bfe2d107f482d48ba498889e5e07eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8102921624520911564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2646,6 +2766,7 @@ MonoBehaviour:
     m_Bits: 65
   _velocity: {x: 0, y: 0, z: 0}
   _velocityOffGrid: 0
+  _animator: {fileID: 6628692743437173173}
   _minNoiseFrequency: 10
   _maxNoiseFrequency: 20
   _stalker: 0
@@ -2805,6 +2926,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e185020aebb57c84e82e279a7d3bafbe, type: 3}
   - {fileID: 8300000, guid: 7a0a86496b745194bb497e064928dd57, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!82 &5916633338621880245

@@ -14,6 +14,11 @@ namespace Player.Equipment
         [SerializeField] private float lanternLossPerSecond;
         [SerializeField] private float unequippedLossMultiplier;
         
+        [Header("Sound Options")]
+        [SerializeField] private float maxSoundVolume;
+        [SerializeField] private float soundGain;
+        [SerializeField] private float SoundLoss;
+        
         [Header("Flashing Options")]
         [SerializeField] private float raycastMultiplier;
 
@@ -30,8 +35,19 @@ namespace Player.Equipment
                 if(_light != null) _light.intensity = Mathf.Lerp(0f, maxLightIntensity, _lightLevel/maxLightLevel);
             }
         }
+
+        public float SoundLevel
+        {
+            get => _soundLevel;
+            private set
+            {
+                _soundLevel = Mathf.Clamp(value, 0f, maxSoundVolume);
+                UpdateAudioPlayers();
+            }
+        }
         
         private float _lightLevel;
+        private float _soundLevel;
         
         private Animator _animator;
         private Light _light;
@@ -51,6 +67,7 @@ namespace Player.Equipment
                 CheckFlashing();
                 DimLight();
             }
+            if(SoundLevel > 0) DimSound();
             if(_lightLevel == 0 && !_unequipped) Unequip();
         }
 
@@ -59,7 +76,10 @@ namespace Player.Equipment
             EnemyController temp;
             if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _lightLevel * raycastMultiplier))
                 if ((temp = hit.collider.gameObject.GetComponent<EnemyController>()) != null)
+                {
                     temp.Flashed(true);
+                    OnFlash?.Invoke(this, EventArgs.Empty);
+                }
                     
         }
 
@@ -70,9 +90,17 @@ namespace Player.Equipment
             LightLevel -= loss;
         }
 
+        private void DimSound()
+        {
+            var loss = lanternLossPerSecond * SoundLoss * Time.deltaTime;
+            if(_unequipped) loss *= unequippedLossMultiplier;
+            SoundLevel -= loss;
+        }
+
         public override void Use()
         {
             LightLevel += lanternGainPerUse;
+            SoundLevel += lanternLossPerSecond * soundGain;
             OnCrank?.Invoke(this, EventArgs.Empty);
         }
 
@@ -88,6 +116,12 @@ namespace Player.Equipment
             _unequipped = true;
             _animator.SetTrigger("Unequip");
             InvokeOnUnequip();
+        }
+
+        private void UpdateAudioPlayers()
+        {
+            useAudio._audioSource.pitch = _soundLevel;
+            useAudio._audioSource.volume = _soundLevel;
         }
     }
 }
