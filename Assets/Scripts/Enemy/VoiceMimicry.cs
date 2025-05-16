@@ -24,10 +24,10 @@ namespace Enemy
 
         private void Update()
         {
-            if (dangerLevel != eController._DangerLevel)
+            if (dangerLevel != eController.DangerLevel)
             {
                 currentSoundPlayer.StopPlaying();
-                dangerLevel = eController._DangerLevel;
+                dangerLevel = eController.DangerLevel;
                 if(dangerVoices.Length >= dangerLevel) currentSoundPlayer = dangerVoices[dangerLevel-1];
             }
         }
