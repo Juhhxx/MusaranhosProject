@@ -3098,7 +3098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293de53e97fe41e469c9b8c218f408fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRadius: 8
+  interactionRadius: 2
   interactionOffset: {fileID: 4246137408946007036}
   interactiveLayerMask:
     serializedVersion: 2
