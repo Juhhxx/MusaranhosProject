@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         if (_dangerLevel > 0 && !_agent.enabled) _agent.enabled = true;
-        else _agent.enabled = false;
+        else if (_dangerLevel == 0) _agent.enabled = false;
     }
 
     public void Flashed(bool value) => _flashed = value;
