@@ -28,8 +28,6 @@ public class PlayerInteraction : MonoBehaviour
     
     public void Interact()
     {
-        
-        print(!_canInteract);
         if(!_canInteract) return;
         var detectedObject = Detector.GetClosestInArea<InteractiveObject>(transform, interactionRadius, interactiveLayerMask);
         print(detectedObject);
@@ -51,7 +49,6 @@ public class PlayerInteraction : MonoBehaviour
         {
             return playerInventory.ContainsItem(interactiveObject.RequiredItem);
         }
-        print("false");
         return false;
     }
 }
