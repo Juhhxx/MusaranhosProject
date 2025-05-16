@@ -44,7 +44,6 @@ namespace Misc
             playerController = FindFirstObjectByType<PlayerController>();
             lantern = FindFirstObjectByType<Lantern>();
             uiManager = FindFirstObjectByType<UiManager>();
-            player.OnScoutMove += OnPlayerScoutMove;
             player.OnShiv += OnShiv;
             player.OnDeath += OnDeath;
             player.OnScoutMove += ScoutMove;
@@ -71,11 +70,6 @@ namespace Misc
         private void OnEnemyLostChase(object sender, EventArgs e)
         {
             player.StartScout();
-        }
-
-        private void OnPlayerScoutMove(object sender, EventArgs e)
-        {
-            //enemy.Move();
         }
 
         private void OnLettersToggle(object sender, EventArgs e)
