@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
@@ -37,6 +38,10 @@ public class Pathfinder : MonoBehaviour
     }
     private Stack<GraphPoint> AStar(Node start, Node end)
     {
+        Dictionary<int,Node> instancedNodes = new Dictionary<int,Node>();
+        instancedNodes.Add(start.Point.ID, start);
+        instancedNodes.Add(end.Point.ID, end);
+
         List<Node> open = new List<Node>();
         List<Node> closed = new List<Node>();
         Node currentPoint = null;
@@ -55,8 +60,8 @@ public class Pathfinder : MonoBehaviour
             {
                 Node next;
 
-                if (c != end.Point) next = new Node(c);
-                else next = end;
+                if (instancedNodes.ContainsKey(c.ID)) next = new Node(c);
+                else next = instancedNodes[c.ID];
 
                 float toNodeCost = currentPoint.CostSoFar + 1;
 

@@ -4,6 +4,7 @@ using UnityEngine;
 public class GraphPoint : MonoBehaviour
 {
     [SerializeField] private int _pointID;
+    public int ID => _pointID;
     [SerializeField] private List<GraphPoint> _connections;
     public IEnumerable<GraphPoint> Connections => _connections;
 
