@@ -189,7 +189,7 @@ public class UiManager : MonoBehaviour
 
     public void PickedUpItem(Item item)
     {
-        itemPopupText.text = itemPopupText.text.Replace("%", item.ToString());
+        itemPopupText.text = "You picked up a " + item;
         StartCoroutine(Popup(itemPopupAlpha, popupDuration));
     }
 
