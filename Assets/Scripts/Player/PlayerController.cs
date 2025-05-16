@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private bool _prePauseCanMove;
     private bool _prePauseCanDoAction;
     private bool _prePauseCantRead;
+    private bool _escapedFirstAttack;
+
+    public bool EscapedFirstAttack => _escapedFirstAttack;
 
     public event EventHandler OnLetterToggle;
     public event EventHandler OnPause;
@@ -123,5 +126,6 @@ public class PlayerController : MonoBehaviour
     {
         StopMovement(false);
         StopActions(false, false);
+        if (!_escapedFirstAttack) _escapedFirstAttack = true;
     }
 }
