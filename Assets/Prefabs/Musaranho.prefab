@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a50a560ce5c043a88e3a63ecedd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveInterval: 10
+  _moveInterval: 20
   _playerTrans: {fileID: 0}
   _gridBased: 1
   _graphManager: {fileID: 0}
@@ -286,6 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8275170199656304849}
   - component: {fileID: 5764784494740864112}
+  - component: {fileID: 6496383437982992338}
   m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
@@ -322,6 +323,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interferenceIntensity: 1
+--- !u!65 &6496383437982992338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139674574303104202}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2902679356273107733
 GameObject:
   m_ObjectHideFlags: 0
