@@ -376,6 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2925024117108591616}
   - component: {fileID: 5607677582728383357}
+  - component: {fileID: 2481109991529004858}
   m_Layer: 5
   m_Name: Kill Audio
   m_TagString: Untagged
@@ -499,6 +500,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2481109991529004858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7190471907555883888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190cfa2a962f16a49a44992f5d6a0054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip:
+  - {fileID: 8300000, guid: a4fe37930d30a98418bcfbb6352d6190, type: 3}
+  _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 5607677582728383357}
+  _isLoop: 0
+  _playOnStart: 0
 --- !u!1 &7772176674149422518
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8936481877653608373}
   - component: {fileID: 1881180854761478037}
+  - component: {fileID: 6761694943756504188}
   m_Layer: 5
   m_Name: Shiv Audio
   m_TagString: Untagged
@@ -632,6 +652,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6761694943756504188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7772176674149422518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190cfa2a962f16a49a44992f5d6a0054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip:
+  - {fileID: 8300000, guid: 3b354194ed09aa841890c9dd5eee6637, type: 3}
+  _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
+  _isLoop: 0
+  _playOnStart: 0
 --- !u!1 &8285624941700872421
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +833,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  shiv: {fileID: 1881180854761478037}
+  death: {fileID: 5607677582728383357}
 --- !u!1 &8550770995222343452
 GameObject:
   m_ObjectHideFlags: 0

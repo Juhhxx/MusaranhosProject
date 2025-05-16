@@ -19,8 +19,7 @@ namespace Map
         public override void Interact()
         {
             var temp = FindFirstObjectByType<PlayerInventory>();
-            if(temp != null) temp.AddLetter(letterReward);
-            Disable();
+            if(temp != null && letterReward != null) temp.AddLetter(letterReward);
             base.Interact();
         }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Map;
 using Misc;
+using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -25,6 +26,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private TMP_Text letterPopupText;
     [SerializeField] private CanvasGroup letterPopupAlpha;
     [SerializeField] private float popupDuration;
+    [SerializeField] private Image letterImage;
     [SerializeField] private GameObject gameOverUI;
 
     [Header("Settings Elements")]
@@ -36,6 +38,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Slider musicVolume;
     
     private PlayerMovement playerMovement;
+    private PlayerLetterReader playerLetterReader;
     private LiftGammaGain gammaController;
     private GameManager gameManager;
     
@@ -107,8 +110,8 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
-        FullScreen = FullScreen;
         playerMovement = FindFirstObjectByType<PlayerMovement>();
+        playerLetterReader = FindFirstObjectByType<PlayerLetterReader>();
         var postProcessing = FindFirstObjectByType<Volume>();
         if (postProcessing != null)
         {
@@ -230,10 +233,21 @@ public class UiManager : MonoBehaviour
         var time = duration;
         while (time > 0f)
         {
-            time += Time.deltaTime;
+            time -= Time.deltaTime;
             text.alpha = time;
             yield return null;
         }
+    }
+
+    public void ToggleLetters(bool state)
+    {
+        letterImage.enabled = state;
+        if(state) ChangeLetters();
+    }
+
+    public void ChangeLetters()
+    {
+        letterImage.sprite = playerLetterReader.Letters[playerLetterReader.CurrentLetter].Image;
     }
     
 }

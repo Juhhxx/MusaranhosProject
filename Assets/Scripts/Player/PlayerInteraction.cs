@@ -28,8 +28,11 @@ public class PlayerInteraction : MonoBehaviour
     
     public void Interact()
     {
+        
+        print(!_canInteract);
         if(!_canInteract) return;
         var detectedObject = Detector.GetClosestInArea<InteractiveObject>(transform, interactionRadius, interactiveLayerMask);
+        print(detectedObject);
         if (CanInteract(detectedObject))
         {
             foreach (var item in detectedObject.RewardItem)
@@ -44,10 +47,11 @@ public class PlayerInteraction : MonoBehaviour
     private bool CanInteract(InteractiveObject interactiveObject)
     {
         if(!_canInteract) return false;
-        if (playerInventory != null && interactiveObject != null)
+        if (playerInventory != null && interactiveObject != null && interactiveObject.isActiveAndEnabled)
         {
             return playerInventory.ContainsItem(interactiveObject.RequiredItem);
         }
+        print("false");
         return false;
     }
 }

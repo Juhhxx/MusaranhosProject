@@ -10,6 +10,7 @@ namespace Player
         private Dictionary<Item, int> inventory;
         private List<Letter> letters;
         public List<Letter> Letters => letters;
+        public Item NewItem {get; private set;}
 
         public event EventHandler OnItemAdded;
         public event EventHandler OnItemRemoved;
@@ -27,7 +28,8 @@ namespace Player
             if (!inventory.TryAdd(item, 1))
             {
                 inventory[item] += 1;
-                OnItemAdded?.Invoke(this, EventArgs.Empty);
+                NewItem = item;
+                if(item is not (Item.None or Item.Shiv or Item.Block)) OnItemAdded?.Invoke(this, EventArgs.Empty);
             }
         }
 

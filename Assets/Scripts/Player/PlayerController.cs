@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour
     private bool _escapedFirstAttack;
 
     public bool EscapedFirstAttack => _escapedFirstAttack;
-
-    public event EventHandler OnLetterToggle;
     public event EventHandler OnPause;
     
     void Start()
@@ -73,7 +71,6 @@ public class PlayerController : MonoBehaviour
     {
         if(_cantRead) return;
         _playerLetterReader.ToggleLetters();
-        OnLetterToggle?.Invoke(this, EventArgs.Empty);
     }
 
     private void NextLetter(InputAction.CallbackContext context)
