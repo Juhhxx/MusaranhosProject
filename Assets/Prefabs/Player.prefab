@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 1511377300861745914}
   - component: {fileID: 2516221156078646099}
   - component: {fileID: 551895119302764426}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LanPullUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1452938142547445207}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 5124847681876454157}
   - component: {fileID: 8166009288396633282}
   - component: {fileID: 875262807094226664}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,11 +756,14 @@ MonoBehaviour:
   maxLightLevel: 5
   lanternGainPerUse: 0.5
   lanternLossPerSecond: 1
+  _raycastMask:
+    serializedVersion: 2
+    m_Bits: 1025
   unequippedLossMultiplier: 2
   maxSoundVolume: 1.1
   soundGain: 0.25
   SoundLoss: 0.5
-  raycastMultiplier: 2
+  raycastMultiplier: 2.5
 --- !u!95 &875262807094226664
 Animator:
   serializedVersion: 7
@@ -943,7 +946,7 @@ GameObject:
   - component: {fileID: 2852386735133010320}
   - component: {fileID: 4298707159419319030}
   - component: {fileID: 4915262227444484811}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LanPullDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1177,7 +1180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2441166965004113671}
   - component: {fileID: 5761651074791497944}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1264,7 +1267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4551499365965524128}
   - component: {fileID: 1411515828184734081}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1620,7 +1623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1877864830558415926}
   - component: {fileID: 335493634056085300}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2353,7 +2356,7 @@ GameObject:
   - component: {fileID: 1061450370103573362}
   - component: {fileID: 3778223007083840305}
   - component: {fileID: 5559332844531135609}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LanPullCrank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2501,7 +2504,7 @@ GameObject:
   - component: {fileID: 3350916088328914959}
   - component: {fileID: 2685433084488868217}
   - component: {fileID: 2693578113628363606}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2621,7 +2624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5884555568455268817}
   - component: {fileID: 6121580798318409633}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
