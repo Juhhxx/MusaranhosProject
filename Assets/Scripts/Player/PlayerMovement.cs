@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     public event EventHandler OnNoise;
     public event EventHandler OnShiv;
     public event EventHandler OnDeath;
+    
 
     void Start()
     {  
