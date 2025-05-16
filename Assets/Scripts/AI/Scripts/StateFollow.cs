@@ -8,6 +8,7 @@ public class StateFollow : StateAbstract
     GameObject gameObject;
 
     EnemyMovement _movement;
+    EnemyController _controller;
 
     protected override void EntryAction()
     {
@@ -26,13 +27,14 @@ public class StateFollow : StateAbstract
         Debug.Log("Exit Follow");
 
         _movement.GridBased = true;
-
+        _controller.LostChase();
     }
     public override void InstantiateState()
     {
         gameObject = base.objectReference;
 
         _movement = GetComponent<EnemyMovement>(gameObject);
+        _controller = GetComponent<EnemyController>(gameObject);
 
         base.state = new State(base.Name, EntryAction, StateAction, ExitAction);
     }

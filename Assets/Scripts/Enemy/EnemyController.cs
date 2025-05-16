@@ -16,14 +16,15 @@ public class EnemyController : MonoBehaviour
     private int _dangerLevel = 0;
     public int DangerLevel => _dangerLevel;
     public event EventHandler OnAttack;
+    public event EventHandler OnLostChase;
 
     private void Start()
     {
-        _agent      = GetComponent<NavMeshAgent>();
-        _anim       = GetComponent<Animator>();
-        _flashed    = false;
-        _shived     = false;
-        _hearSound  = false;
+        _agent = GetComponent<NavMeshAgent>();
+        _anim = GetComponent<Animator>();
+        _flashed = false;
+        _shived = false;
+        _hearSound = false;
     }
 
     private void Update()
@@ -38,6 +39,7 @@ public class EnemyController : MonoBehaviour
     public void Shived(bool value) => _shived = value;
     public void HearSound(bool value) => _hearSound = value;
     public void Attack() => OnAttack?.Invoke(this, null);
+    public void LostChase() => OnLostChase?.Invoke(this, null);
     
     public void SetDangerLevel(int value) => _dangerLevel = value;
 }

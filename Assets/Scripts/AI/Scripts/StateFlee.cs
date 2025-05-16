@@ -13,7 +13,7 @@ public class StateFlee : StateAbstract
     protected override void EntryAction()
     {
         Debug.Log("Entering Flee");
-        
+
         _movement.GridTeleport(_graph.GetPointAwayFromPlayer());
         _movement.ResetPath();
     }
