@@ -29,7 +29,7 @@ public class PlayerInteraction : MonoBehaviour
     public void Interact()
     {
         if(!_canInteract) return;
-        var detectedObject = Detector.GetClosestInArea<InteractiveObject>(transform, interactionRadius, interactiveLayerMask);
+        var detectedObject = Detector.GetClosestInArea<InteractiveObject>(interactionOffset, interactionRadius, interactiveLayerMask);
         print(detectedObject);
         if (CanInteract(detectedObject))
         {
