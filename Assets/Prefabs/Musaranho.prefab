@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a50a560ce5c043a88e3a63ecedd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveInterval: 3
+  _moveInterval: 10
   _playerTrans: {fileID: 0}
   _gridBased: 1
   _graphManager: {fileID: 0}
@@ -255,6 +255,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3324d763c9bbe0346991ed4b4e017587, type: 3}
   - {fileID: 8300000, guid: 9dc6355f83081ef47b30644723ddab68, type: 3}
   _audioMixer: {fileID: 24300002, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!1 &6084478565092641184
@@ -325,6 +326,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9bd24e1e57065044f8ddbd89acd0fc11, type: 3}
   - {fileID: 8300000, guid: 06d4ce9dd83347a45892ec88163cff17, type: 3}
   _audioMixer: {fileID: 24300002, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!1 &7371880148237646384

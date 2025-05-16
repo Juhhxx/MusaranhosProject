@@ -222,6 +222,7 @@ MonoBehaviour:
   _audioClip:
   - {fileID: 8300000, guid: 078bd51aaaae3464c994c4ca4728a5a3, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!82 &551895119302764426
@@ -405,6 +406,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e185020aebb57c84e82e279a7d3bafbe, type: 3}
   - {fileID: 8300000, guid: 7a0a86496b745194bb497e064928dd57, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!82 &765580745538705400
@@ -636,6 +638,9 @@ MonoBehaviour:
   lanternGainPerUse: 0.5
   lanternLossPerSecond: 1
   unequippedLossMultiplier: 2
+  maxSoundVolume: 1.1
+  soundGain: 0.25
+  SoundLoss: 0.5
   raycastMultiplier: 2
 --- !u!95 &875262807094226664
 Animator:
@@ -805,6 +810,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7de0b1701af963e459e49966e4f80f9f, type: 3}
   - {fileID: 8300000, guid: f8cea482b20c93b4ca8e3d3782dd94eb, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!1 &2489514497743654487
@@ -855,6 +861,7 @@ MonoBehaviour:
   _audioClip:
   - {fileID: 8300000, guid: 6ac96d7c4b26a6a4aac9c8b727b6cf50, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!82 &4915262227444484811
@@ -1717,6 +1724,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7de0b1701af963e459e49966e4f80f9f, type: 3}
   - {fileID: 8300000, guid: f8cea482b20c93b4ca8e3d3782dd94eb, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!1 &5703860636784876170
@@ -2115,6 +2123,7 @@ MonoBehaviour:
   _audioClip:
   - {fileID: 8300000, guid: d42ffd24f0e35814e86ca334e931f34d, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!82 &5559332844531135609
@@ -2805,6 +2814,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e185020aebb57c84e82e279a7d3bafbe, type: 3}
   - {fileID: 8300000, guid: 7a0a86496b745194bb497e064928dd57, type: 3}
   _audioMixer: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+  _audioSource: {fileID: 0}
   _isLoop: 0
   _playOnStart: 0
 --- !u!82 &5916633338621880245
