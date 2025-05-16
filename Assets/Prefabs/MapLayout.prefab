@@ -3177,6 +3177,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8894242362222156612}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   dynamiteObj: {fileID: 3162973886280729772}
 --- !u!4 &8948712924379717545 stripped
 Transform:
@@ -6535,6 +6547,10 @@ PrefabInstance:
       propertyPath: _audioMixer
       value: 
       objectReference: {fileID: -64585332734448321, guid: 0b30f346433c4bb449c4ad2656326c61, type: 2}
+    - target: {fileID: 1047129327024259058, guid: 89723bce343678140836f4897c9faacf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3140010069484111761, guid: 89723bce343678140836f4897c9faacf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6596,6 +6612,11 @@ GameObject:
 --- !u!4 &6806375380314170151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3140010069484111761, guid: 89723bce343678140836f4897c9faacf, type: 3}
+  m_PrefabInstance: {fileID: 8495641424817497270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8894242362222156612 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 1047129327024259058, guid: 89723bce343678140836f4897c9faacf, type: 3}
   m_PrefabInstance: {fileID: 8495641424817497270}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8535711835324925022

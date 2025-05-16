@@ -703,6 +703,10 @@ PrefabInstance:
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 263207797}
+    - target: {fileID: 7493567839011021072, guid: c514b33b87bb7814abb9e9ee6442caa3, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 729793808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -928,6 +932,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &729793808 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2182828475438883385, guid: 7e18dd4ca002a0c48a19f58291aa22d0, type: 3}
+  m_PrefabInstance: {fileID: 1134983472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &738671713
 GameObject:
   m_ObjectHideFlags: 0

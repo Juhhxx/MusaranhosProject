@@ -10,6 +10,7 @@ namespace Map
         public override void Interact()
         {
             dynamiteObj.GetComponent<Dynamite>().Enable();
+            print("Interact");
             base.Interact();
         }
     }

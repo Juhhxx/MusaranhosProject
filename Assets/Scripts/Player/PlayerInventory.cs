@@ -35,7 +35,9 @@ namespace Player
 
         public bool ContainsItem(Item item)
         {
-            return inventory.ContainsKey(item) && inventory[item] > 0;
+            int temp;
+            inventory.TryGetValue(item, out temp);
+            return inventory.ContainsKey(item) && temp > 0;
         }
 
         public void RemoveItem(Item item)
