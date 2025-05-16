@@ -35,5 +35,5 @@ public class EnemyController : MonoBehaviour
     public void HearSound(bool value) => _hearSound = value;
     public void Attack() => OnAttack?.Invoke(this, null);
     
-    public void Set_DangerLevel(int value) => _dangerLevel = value;
+    public void SetDangerLevel(int value) => _dangerLevel = value;
 }
