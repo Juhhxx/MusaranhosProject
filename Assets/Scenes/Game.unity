@@ -339,6 +339,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 336849310427055277, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 978669880913537744, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2343841047648386744, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489514497743654487, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552084043594274123, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636862044371640118, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3606346162807089310, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.54
@@ -378,6 +402,26 @@ PrefabInstance:
     - target: {fileID: 3606346162807089310, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750888447890216472, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877416910696885607, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011277265810051304, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446059015269929467, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166009288396633282, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+      propertyPath: _raycastMask.m_Bits
+      value: 1025
       objectReference: {fileID: 0}
     - target: {fileID: 8592284541503679416, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
       propertyPath: m_Name
