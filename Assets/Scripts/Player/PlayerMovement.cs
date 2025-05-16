@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask _layerBlock;
     [SerializeField] private Vector3 _velocity;
     [SerializeField] private float _velocityOffGrid;
+    [SerializeField] private Animator _animator;
     
     [Header("Noise Making Settings")]
     [SerializeField] private float _minNoiseFrequency;
@@ -130,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
             _isMoving = false;
             _walkTimer = 0;
             _lastPosition = Vector3.zero;
+            _animator.SetBool("Crawling", false);
             OnScoutMove?.Invoke(this, EventArgs.Empty);
             _gameManager.PlayerWalking(true);
         }
@@ -151,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
         if (MoveVector.y > 0 && !_cantGo)
         {
             _isMoving = true;
+            _animator.SetBool("Crawling", true);
             _lastPosition = transform.position;
             _moveTarget = transform.position + transform.forward * _gridSizePlusHalf;
             _gameManager.PlayerWalking(false);
