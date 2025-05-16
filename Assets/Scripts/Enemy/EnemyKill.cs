@@ -18,6 +18,7 @@ public class EnemyKill : MonoBehaviour
 
     public void Missed()
     {
+        print("a");
         gameManager.AttackEnd();
     }
 }

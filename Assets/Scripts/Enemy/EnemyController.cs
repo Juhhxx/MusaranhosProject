@@ -1,4 +1,5 @@
 using System;
+using AI.FSMs.UnityIntegration;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,6 +16,8 @@ public class EnemyController : MonoBehaviour
 
     private int _dangerLevel = 0;
     public int DangerLevel => _dangerLevel;
+    
+    private StateMachineRunner _stateMachineRunner;
     public event EventHandler OnAttack;
     public event EventHandler OnLostChase;
 
@@ -25,12 +28,13 @@ public class EnemyController : MonoBehaviour
         _flashed = false;
         _shived = false;
         _hearSound = false;
+        _stateMachineRunner = GetComponent<StateMachineRunner>();
     }
 
     private void Update()
     {
-        if (_dangerLevel > 0 && !_agent.enabled) _agent.enabled = true;
-        else if (_dangerLevel == 0) _agent.enabled = false;
+        if (_dangerLevel > 0 && !_stateMachineRunner.enabled) _stateMachineRunner.enabled = true;
+        else if (_dangerLevel == 0) _stateMachineRunner.enabled = false;
 
         _anim.SetFloat("Speed", Mathf.Abs(_agent.velocity.magnitude));
     }

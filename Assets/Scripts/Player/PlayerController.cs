@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
 
     public void EscapedAttack()
     {
+        print("escapedAttack");
         StopMovement(false);
         StopActions(false, false);
         if (!_escapedFirstAttack) _escapedFirstAttack = true;
