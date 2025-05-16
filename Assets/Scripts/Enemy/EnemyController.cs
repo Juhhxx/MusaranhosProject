@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     private bool _hearSound;
     public bool GetHearSound => _hearSound;
     private NavMeshAgent _agent;
+    private Animator _anim;
 
     private int _dangerLevel = 0;
     public int DangerLevel => _dangerLevel;
@@ -18,16 +19,19 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        _flashed = false;
-        _shived = false;
-        _hearSound = false;
+        _agent      = GetComponent<NavMeshAgent>();
+        _anim       = GetComponent<Animator>();
+        _flashed    = false;
+        _shived     = false;
+        _hearSound  = false;
     }
 
     private void Update()
     {
         if (_dangerLevel > 0 && !_agent.enabled) _agent.enabled = true;
         else if (_dangerLevel == 0) _agent.enabled = false;
+
+        _anim.SetFloat("Speed", Mathf.Abs(_agent.velocity.magnitude));
     }
 
     public void Flashed(bool value) => _flashed = value;
