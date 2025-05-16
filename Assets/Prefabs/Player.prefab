@@ -2161,7 +2161,7 @@ MonoBehaviour:
   pullUpAudio: {fileID: 8128804475746804395}
   pullDownAudio: {fileID: 4580094723084555846}
   useAudio: {fileID: 0}
-  interferenceRange: 3
+  interferenceRange: 20
   interferenceLayerMask:
     serializedVersion: 2
     m_Bits: 128
