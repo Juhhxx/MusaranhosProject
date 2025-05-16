@@ -11,7 +11,6 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         _lineView = GetComponentInChildren<LineView>();
-        StartDialogue("Player");
     }
     private void Update()
     {
