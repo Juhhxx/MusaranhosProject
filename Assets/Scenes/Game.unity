@@ -910,6 +910,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 550851570}
   m_LocalEulerAnglesHint: {x: 170.474, y: -2.4589844, z: -0.2619934}
+--- !u!82 &825578650 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4179312943622662530, guid: 7170e0bf657ce3749b4a7bddc3bca33b, type: 3}
+  m_PrefabInstance: {fileID: 194187432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &912396713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,6 +1863,10 @@ PrefabInstance:
       propertyPath: 'audio.Array.data[5]'
       value: 
       objectReference: {fileID: 293604208}
+    - target: {fileID: 1048590343355241416, guid: fc1f4477935d241429c069e8bf1ffdab, type: 3}
+      propertyPath: 'audio.Array.data[6]'
+      value: 
+      objectReference: {fileID: 825578650}
     - target: {fileID: 7682403369522691103, guid: fc1f4477935d241429c069e8bf1ffdab, type: 3}
       propertyPath: m_Pivot.x
       value: 0
