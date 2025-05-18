@@ -38,9 +38,11 @@ public class Pathfinder : MonoBehaviour
     }
     private Stack<GraphPoint> AStar(Node start, Node end)
     {
-        Dictionary<int,Node> instancedNodes = new Dictionary<int,Node>();
-        instancedNodes.Add(start.Point.ID, start);
-        instancedNodes.Add(end.Point.ID, end);
+        Dictionary<int, Node> instancedNodes =  new Dictionary<int, Node>()
+                                                {
+                                                    { start.Point.ID , start },
+                                                    { end.Point.ID, end }
+                                                };
 
         List<Node> open = new List<Node>();
         List<Node> closed = new List<Node>();
@@ -60,7 +62,11 @@ public class Pathfinder : MonoBehaviour
             {
                 Node next;
 
-                if (instancedNodes.ContainsKey(c.ID)) next = new Node(c);
+                if (!instancedNodes.ContainsKey(c.ID))
+                {
+                    next = new Node(c);
+                    instancedNodes.Add(c.ID, next);
+                }
                 else next = instancedNodes[c.ID];
 
                 float toNodeCost = currentPoint.CostSoFar + 1;
