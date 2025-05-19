@@ -41,16 +41,17 @@ public class Pathfinder : MonoBehaviour
         Dictionary<int, Node> instancedNodes =  new Dictionary<int, Node>()
                                                 {
                                                     { start.Point.ID , start },
-                                                    { end.Point.ID, end }
+                                                    { end.Point.ID   , end   }
                                                 };
 
-        List<Node> open = new List<Node>();
-        List<Node> closed = new List<Node>();
-        Node currentPoint = null;
+        List<Node> open     = new List<Node>();
+        List<Node> closed   = new List<Node>();
+        Node currentPoint   = null;
 
-        start.TotalCost = 0;
-        start.FromNode = null;
-        start.TotalCost = HeuristicCalculation(start, end);
+        start.TotalCost     = 0;
+        start.FromNode      = null;
+        start.TotalCost     = HeuristicCalculation(start, end);
+
         open.Add(start);
 
         while (open.Count > 0)
@@ -82,9 +83,9 @@ public class Pathfinder : MonoBehaviour
                     if (next.CostSoFar <= toNodeCost) continue;
                 }
 
-                next.CostSoFar = toNodeCost;
-                next.FromNode = currentPoint;
-                next.TotalCost = HeuristicCalculation(next, end) + toNodeCost;
+                next.CostSoFar  = toNodeCost;
+                next.FromNode   = currentPoint;
+                next.TotalCost  = HeuristicCalculation(next, end) + toNodeCost;
                 
                 if (!open.Contains(next)) open.Add(next);
 
