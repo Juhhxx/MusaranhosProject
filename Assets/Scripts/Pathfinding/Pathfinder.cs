@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
@@ -37,13 +38,20 @@ public class Pathfinder : MonoBehaviour
     }
     private Stack<GraphPoint> AStar(Node start, Node end)
     {
-        List<Node> open = new List<Node>();
-        List<Node> closed = new List<Node>();
-        Node currentPoint = null;
+        Dictionary<int, Node> instancedNodes =  new Dictionary<int, Node>()
+                                                {
+                                                    { start.Point.ID , start },
+                                                    { end.Point.ID   , end   }
+                                                };
 
-        start.TotalCost = 0;
-        start.FromNode = null;
-        start.TotalCost = HeuristicCalculation(start, end);
+        List<Node> open     = new List<Node>();
+        List<Node> closed   = new List<Node>();
+        Node currentPoint   = null;
+
+        start.TotalCost     = 0;
+        start.FromNode      = null;
+        start.TotalCost     = HeuristicCalculation(start, end);
+
         open.Add(start);
 
         while (open.Count > 0)
@@ -55,8 +63,12 @@ public class Pathfinder : MonoBehaviour
             {
                 Node next;
 
-                if (c != end.Point) next = new Node(c);
-                else next = end;
+                if (!instancedNodes.ContainsKey(c.ID))
+                {
+                    next = new Node(c);
+                    instancedNodes.Add(c.ID, next);
+                }
+                else next = instancedNodes[c.ID];
 
                 float toNodeCost = currentPoint.CostSoFar + 1;
 
@@ -71,9 +83,9 @@ public class Pathfinder : MonoBehaviour
                     if (next.CostSoFar <= toNodeCost) continue;
                 }
 
-                next.CostSoFar = toNodeCost;
-                next.FromNode = currentPoint;
-                next.TotalCost = HeuristicCalculation(next, end) + toNodeCost;
+                next.CostSoFar  = toNodeCost;
+                next.FromNode   = currentPoint;
+                next.TotalCost  = HeuristicCalculation(next, end) + toNodeCost;
                 
                 if (!open.Contains(next)) open.Add(next);
 

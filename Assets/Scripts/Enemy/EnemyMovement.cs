@@ -22,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private GraphManager _graphManager;
     private IDictionary<int,GraphPoint> _graph;
     [SerializeField] private GraphPoint _startPoint;
+    [SerializeField] private GraphPoint _destinationPoint;
     public GraphPoint StartPoint => _startPoint;
     private Pathfinder _pathfinder;
     private Stack<GraphPoint> _currentPath;
@@ -33,20 +34,21 @@ public class EnemyMovement : MonoBehaviour
     public bool AtTarget => _atTarget;
     private NavMeshAgent _agent;
     private Animator _animator;
-    
+
     private void Start()
     {
-        _agent                  = GetComponent<NavMeshAgent>();
-        _pathfinder             = GetComponent<Pathfinder>();
-        gameManager             = FindFirstObjectByType<GameManager>();
-        _graph                  = _graphManager.Graph;
-        _currentPath            = new Stack<GraphPoint>();
-        _agent.updateRotation   = false;
-        _moveTimer              = 0f;
-        _animator               = GetComponent<Animator>();
+        _agent = GetComponent<NavMeshAgent>();
+        _pathfinder = GetComponent<Pathfinder>();
+        gameManager = FindFirstObjectByType<GameManager>();
+        _graph = _graphManager.Graph;
+        _currentPath = new Stack<GraphPoint>();
+        _agent.updateRotation = false;
+        _moveTimer = 0f;
+        _animator = GetComponent<Animator>();
 
-        gameManager.OnScoutMove += OnScoutMove;
+        // gameManager.OnScoutMove += OnScoutMove;
         GridTeleport(_startPoint);
+        SetNewDestination(_destinationPoint);
     }
     private void Update()
     {
